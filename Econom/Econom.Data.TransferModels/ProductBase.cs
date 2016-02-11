@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Econom.Data.TransferModels
+﻿namespace Econom.Data.TransferModels
 {
-    class Product
+    public class ProductBase
     {
+        public string Barcode { get; set; }
+
+        public string Description { get; set; }
+
+        public byte[] Image { get; set; }
     }
 }
