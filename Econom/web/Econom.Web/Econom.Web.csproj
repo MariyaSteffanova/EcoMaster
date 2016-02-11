@@ -213,7 +213,6 @@
     <Compile Include="Areas\Public\Controllers\BaseController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Controllers\ManageController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -319,6 +318,7 @@
     <Folder Include="Areas\Private\Models\" />
     <Folder Include="Areas\Private\Views\Shared\" />
     <Folder Include="Areas\Public\Views\Keyboard\" />
+    <Folder Include="Controllers\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
