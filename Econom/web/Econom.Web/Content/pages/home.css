@@ -1,0 +1,61 @@
+﻿.content-wrapper {
+    background: none;
+    border: none;
+}
+
+.jumbo-title {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+.input-possibilities {
+    margin-top: 220px;
+    ;
+}
+
+    .input-possibilities ul,a {
+        width: 100%;
+    }
+
+    .input-possibilities .info-circle {
+        border: 7px solid #99cc00;
+        border-radius: 100%;
+        background-color: #fff;
+        width: 8em;
+        height: 8em;
+        text-align: center;
+        padding: 42px 0;
+        margin-left: 20%;
+        z-index: 1000;
+        position: relative;
+    }
+
+        .input-possibilities .info-circle span {
+            font-size: 70px;
+            color: rgba(153,153,153,0.8);
+        }
+
+    .input-possibilities .info-box {
+        text-align: center;
+    }
+
+    .input-possibilities .info-circle:hover, .info-circle:focus {
+        border: 9px solid rgba(88,88,88,0.8);
+        background-color: #99cc00;
+        z-index: 1000;
+    }
+
+        .input-possibilities .info-circle:hover span {
+        color: rgba(0,0,0,0.8);
+        }
+
+    .input-possibilities .info-box-text {
+        border: 1px solid rgba(153, 153, 153, 0.8);
+        background-color: #fff;
+        min-height: 100px;
+        margin-top: -87px;
+        z-index: 10;
+        padding-top: 100px;
+    }

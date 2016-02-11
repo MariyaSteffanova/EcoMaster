@@ -1,0 +1,12 @@
+﻿/*.navbar {
+   top: 20px;
+   position: relative;
+}*/
+
+input[type=submit] {
+    color: white !important;
+}
+
+    input[type=submit]:hover {
+        color: antiquewhite !important;
+    }

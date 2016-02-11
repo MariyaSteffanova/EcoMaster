@@ -1,0 +1,158 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.content-wrapper{
+    background-color: #fff;
+    border-top: 10px solid #99cc00;
+    min-height: 320px;
+}
+
+.relative {
+    position: relative;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+
+.rounded {
+    border-radius: 20px;
+}
+
+.title {
+    color: white;
+    padding: 20px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    background: url("Images/pattren-bg.png");
+    color: white;
+}
+
+.circle-img-lg {
+    /*background-image: url("Images/background.jpg");*/
+    height: 260px;
+    width: 260px;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    border-radius: 100%;
+}
+
+.circle-img-lg-wrapper {
+    display: inline-block;
+    border: 5px solid #434444;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: 0px 10px 0 0;
+    outline: none;
+}
+
+    .circle-img-lg-wrapper:hover {
+        border-color: rgba(255,255,255,0.8);
+    }
+
+.circle-img-lg:focus {
+    border-color: red;
+}
+
+.btn-upload-hidden {
+    width: 100%;
+    height: 100%;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*TOP*/
+.navbar-fixed-top {
+    height: 80px;
+    border-bottom: 3px solid #99cc00;
+}
+
+/*Navbar*/
+.hamburger {
+    color: white;
+}
+
+.navbar, .navbar-inverse, .navbar-fixed-top {
+    background-color: rgba(0,0,0,1.0) !important;
+    font-size: 26px;
+}
+
+.main-menu {
+   margin: -520px 0 70px 0;
+    height: 120px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7) !important;
+}
+
+    .main-menu .navbar-collapse {
+        background-color: rgba(80,80,80,0.0) !important;
+    }
+
+    .main-menu .container {
+        border-bottom: 1px solid gray;
+    }
+
+    .main-menu .navbar-collapse {
+        background: black;
+    }
+
+    .main-menu li:hover {
+        background-color: #99cc00;
+    }
+
+.logo {
+    font-size: 36px;
+}
+/*Background*/
+#bg {
+    background-image: url("./Images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 615px;
+    width: 100%;
+    /*position: fixed;*/
+    border-bottom: 10px solid #99cc00;
+}
+
+.dark {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+
+/*-------------------------------*/
+.backgraound-pattern {
+    background: url("./Images/pattren-bg.png") repeat;
+}
+
+.overlay-bg {
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+    width: 100%;
+}
