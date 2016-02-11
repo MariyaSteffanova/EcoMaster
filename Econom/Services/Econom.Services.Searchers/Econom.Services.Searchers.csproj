@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarcodeSearcherService.cs" />
     <Compile Include="Contracts\IBarcodeSearcherService.cs" />
     <Compile Include="Contracts\IImageSearcherService.cs" />
     <Compile Include="ImageSearcherService.cs" />
@@ -57,6 +58,10 @@
     <ProjectReference Include="..\..\Data\ItemMasterData\ItemMasterData.Models\ItemMasterData.Models.csproj">
       <Project>{b78a28a2-a501-4039-8e86-e878a75b788a}</Project>
       <Name>ItemMasterData.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
+      <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
+      <Name>Econom.Data.TransferModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
