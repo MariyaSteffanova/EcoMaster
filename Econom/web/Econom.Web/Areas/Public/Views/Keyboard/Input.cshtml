@@ -1,0 +1,19 @@
+﻿@model string
+@{
+    ViewBag.Title = "Input";
+}
+
+@Styles.Render("~/Content/keyboard")
+
+<h2>Input</h2>
+<div>
+    <div>
+        <div class="input-barcode-keyboard"></div>
+        @using (Html.BeginForm("Find", "Keyboard", FormMethod.Get, new { @class="form-horizontal"}))
+        {
+          <input type="text" name="barcode", placeholder="Enter barcode.." class="form-control"/>
+
+            <input type="submit" class="btn btn-default" value="Search" />
+        }
+    </div>
+</div>

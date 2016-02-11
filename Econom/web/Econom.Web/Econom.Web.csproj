@@ -233,10 +233,12 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\background.jpg" />
+    <Content Include="Content\Images\barcode.svg.png" />
     <Content Include="Content\Images\pattren-bg.png" />
     <Content Include="Content\Images\slideshow-01.jpg" />
     <Content Include="Content\pages\account.css" />
     <Content Include="Content\pages\home.css" />
+    <Content Include="Content\pages\keyboard-input.css" />
     <Content Include="Content\ripples.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -258,6 +260,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Public\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Public\Views\Keyboard\Input.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -317,7 +320,6 @@
     <Folder Include="Areas\Private\Controllers\" />
     <Folder Include="Areas\Private\Models\" />
     <Folder Include="Areas\Private\Views\Shared\" />
-    <Folder Include="Areas\Public\Views\Keyboard\" />
     <Folder Include="Controllers\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>

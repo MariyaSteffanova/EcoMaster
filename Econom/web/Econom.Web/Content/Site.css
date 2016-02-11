@@ -11,7 +11,7 @@
 }
 
 .content-wrapper{
-    background-color: #fff;
+    background-color: gray;
     border-top: 10px solid #99cc00;
     min-height: 320px;
 }
@@ -24,7 +24,7 @@
 */
 
 .rounded {
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .title {
@@ -140,7 +140,8 @@ textarea {
 }
 
 .dark {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
 }
 
 

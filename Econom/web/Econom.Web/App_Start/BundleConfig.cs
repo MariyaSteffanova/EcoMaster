@@ -63,6 +63,10 @@ namespace Econom.Web
               "~/Content/font-awesome.min.css",
                 "~/Content/pages/home.css"
               ));
+
+            bundles.Add(new StyleBundle("~/Content/keyboard").Include(
+               "~/Content/pages/keyboard-input.css"
+             ));
         }
     }
 }
