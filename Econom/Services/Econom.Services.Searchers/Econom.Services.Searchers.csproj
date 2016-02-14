@@ -63,6 +63,14 @@
       <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
       <Name>Econom.Data.TransferModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Econom.Services.Common\Econom.Services.Common.csproj">
+      <Project>{44fbe2be-11ea-4f20-822a-11f5f2d89a68}</Project>
+      <Name>Econom.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Econom.Services.Logic\Econom.Services.Logic.csproj">
+      <Project>{4e9befe0-5519-4129-9b27-1a23654438e4}</Project>
+      <Name>Econom.Services.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
