@@ -1,0 +1,12 @@
+﻿@using Econom.Web.Areas.Public.ViewModels.Products
+@model ProductBaseViewModel
+
+<div>
+    <div>
+        <h1>@Model.Description</h1>
+        
+        @(Html.Image(Model.Image,
+               Model.Description,
+               new { @class = "b" }))
+    </div>
+</div>
