@@ -1,12 +1,31 @@
 ﻿@using Econom.Web.Areas.Public.ViewModels.Products
+@using Kendo.Mvc.UI
 @model ProductBaseViewModel
 
-<div>
-    <div style="border:10px solid red">
-        <h1>@Model.Description</h1>
-        
-        @(Html.Image(Url.Action("GetImage", "Images", new {url = Model.ImageUrl }),
-               Model.Description,
-               new { @class = "img-found-product" }))
+<div class="row product-wrapper">
+
+    <div class="col-md-4 img-wrapper-circle">
+
+        @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+        {
+            @(Html.Image(Url.Action("GetImage", "Images", new { url = Model.ImageUrl }),
+                   Model.Description,
+                   new { @class = "img-found-product" }))
+        }
+        else {
+            @(Html.Kendo()
+            .Barcode()
+            .Name(Model.Id.ToString())
+            .Value(Model.Barcode)
+            .Encoding(BarcodeSymbology.Code128)
+            .Width(280)
+            .Height(200)
+            .HtmlAttributes(new { @class = "barcode" })
+            .Background("rgba(0,0,0,0.0)"))
+        }
+    </div>
+    <div class="col-md-8">
+        <h1 class="product-description">@Model.Description</h1>
+        @Html.ActionLink("Add to fridge", "AddProduct", "HomeStorage", new { Area= "Private", id = Model.Id}, new { @class="k-button pull-right"})
     </div>
 </div>

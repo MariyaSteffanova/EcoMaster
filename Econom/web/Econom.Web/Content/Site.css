@@ -10,7 +10,7 @@
     padding-right: 15px;
 }
 
-.content-wrapper{
+.content-wrapper {
     background-color: gray;
     border-top: 10px solid #99cc00;
     min-height: 320px;
@@ -102,7 +102,7 @@ textarea {
 }
 
 .main-menu {
-   margin: -520px 0 70px 0;
+    margin: -520px 0 70px 0;
     height: 120px;
     width: 100%;
     background-color: rgba(0,0,0,0.7) !important;

@@ -1,0 +1,33 @@
+﻿.navbar {
+    background-color: transparent !important;
+}
+
+.product-wrapper{
+    padding: 40px 0;
+    border-bottom: 1px solid white;
+}
+
+.img-wrapper-circle {
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    border: 8px solid #fff;
+    border-radius: 100%;
+    overflow: hidden;
+    outline: none;
+    text-align: center;
+}
+
+    .img-wrapper-circle:hover {
+        background-color: #7ea700;
+        cursor: pointer;
+        border-color: #434444;
+    }
+
+.barcode {
+    margin-left: -40px;
+}
+
+.product-description{
+    min-height: 140px;
+}

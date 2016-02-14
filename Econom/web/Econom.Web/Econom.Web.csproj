@@ -56,6 +56,9 @@
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for ASP.NET MVC Q1 2016\wrappers\aspnetmvc\Binaries\Mvc5\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -205,6 +208,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Private\Controllers\HomeStorageController.cs" />
+    <Compile Include="Areas\Private\Controllers\UserController.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Areas\Public\Controllers\ImagesController.cs" />
     <Compile Include="Areas\Public\Controllers\IntroController.cs" />
@@ -239,7 +244,10 @@
     <Content Include="Content\Images\barcode.svg.png" />
     <Content Include="Content\Images\pattren-bg.png" />
     <Content Include="Content\Images\slideshow-01.jpg" />
+    <Content Include="Content\Kendo\kendo.common.min.css" />
+    <Content Include="Content\Kendo\kendo.metro.min.css" />
     <Content Include="Content\pages\account.css" />
+    <Content Include="Content\pages\found.css" />
     <Content Include="Content\pages\home.css" />
     <Content Include="Content\pages\keyboard-input.css" />
     <Content Include="Content\ripples.min.css" />
@@ -266,16 +274,22 @@
     <Content Include="Areas\Public\Views\Keyboard\Input.cshtml" />
     <Content Include="Areas\Public\Views\Shared\Found.cshtml" />
     <Content Include="Areas\Public\Views\Shared\DisplayTemplates\ProductBaseViewModel.cshtml" />
+    <Content Include="Content\Kendo\kendo.common.min.css.map" />
+    <Content Include="Content\Kendo\kendo.metro.min.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\Kendo\jquery.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Kendo\jquery.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Kendo\kendo.all.min.js" />
+    <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\material.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -316,15 +330,18 @@
     <Content Include="Areas\Public\Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Scripts\Kendo\kendo.all.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Private\Controllers\" />
     <Folder Include="Areas\Private\Models\" />
+    <Folder Include="Areas\Private\Views\HomeStorage\" />
     <Folder Include="Areas\Private\Views\Shared\" />
+    <Folder Include="Areas\Private\Views\User\" />
     <Folder Include="Areas\Public\Views\Images\" />
     <Folder Include="Areas\Public\Views\StorageProducts\" />
     <Folder Include="Controllers\" />

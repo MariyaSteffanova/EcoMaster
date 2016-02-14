@@ -9,7 +9,7 @@ namespace Econom.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/Kendo/jquery.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -35,6 +35,11 @@ namespace Econom.Web
                 "~/Content/theme/js/vendor/vendor.js",
                 "~/Content/theme/js/variable.js",
                 "~/Content/theme/js/main.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                "~/Scripts/Kendo/kendo.all.min.js",
+                "~/Scripts/Kendo/kendo.aspnetmvc.min.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/theme").Include(
@@ -67,6 +72,14 @@ namespace Econom.Web
             bundles.Add(new StyleBundle("~/Content/keyboard").Include(
                "~/Content/pages/keyboard-input.css"
              ));
+
+            bundles.Add(new StyleBundle("~/Content/found").Include(
+                "~/Content/pages/found.css"
+                ));
+            bundles.Add(new StyleBundle("~/Content/kendo-css").Include(
+                "~/Content/kendo/kendo.common.min.css",
+                "~/Content/kendo/kendo.metro.min.css"
+                ));
         }
     }
 }

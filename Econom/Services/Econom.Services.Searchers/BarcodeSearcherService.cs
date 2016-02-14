@@ -28,6 +28,7 @@
                .Where(x => x.Barcode == barcode)
                .Select(x => new ProductBase
                {
+                   Id = x.Id,
                    Barcode = x.Barcode,
                    Description = x.Description,
                    ImageUrl = x.Images

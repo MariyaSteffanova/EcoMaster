@@ -1,4 +1,5 @@
 ﻿using Econom.Services.Logic.Contracts;
+using Econom.Web.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Econom.Web.Areas.Public.Controllers
 {
-    public class ImagesController : Controller
+    public class ImagesController : BaseController
     {
         private readonly IImageDownloaderService imageDownloader;
         private readonly IImageProcessorService imageProcessor;
