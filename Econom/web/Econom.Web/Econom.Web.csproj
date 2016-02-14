@@ -368,6 +368,10 @@
       <Project>{e9140512-f401-4f47-a748-f83e22e60562}</Project>
       <Name>Econom.Services.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\Econom.Services.Logic\Econom.Services.Logic.csproj">
+      <Project>{4e9befe0-5519-4129-9b27-1a23654438e4}</Project>
+      <Name>Econom.Services.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\Econom.Services.Searchers\Econom.Services.Searchers.csproj">
       <Project>{aff67409-693d-4de6-b42a-d628fccd013a}</Project>
       <Name>Econom.Services.Searchers</Name>

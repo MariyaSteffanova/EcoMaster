@@ -8,7 +8,7 @@
 
         public string Description { get; set; }
 
-        public byte[] Image { get; set; }
+        public byte[] Image { get; set; } // TODO: Remove?
 
         public string ImageUrl { get; set; }
     }

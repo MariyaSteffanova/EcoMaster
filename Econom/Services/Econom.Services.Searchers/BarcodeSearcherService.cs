@@ -18,7 +18,7 @@
         {
             this.itemMasterProducts = itemMasterProducts;
             this.imageDownloader = imageDownloader;
-            this.imageProcessor = imageProcessor;
+            this.imageProcessor = imageProcessor; // TODO: Remove?
         }
 
         public IQueryable<ProductBase> Search(string barcode)
@@ -30,7 +30,10 @@
                {
                    Barcode = x.Barcode,
                    Description = x.Description,
-                   ImageUrl = x.Images.FirstOrDefault() == null ? null : x.Images.First().Url
+                   ImageUrl = x.Images
+                            .Where(img => img.Url != null)
+                            .Select(img => img.Url)
+                            .FirstOrDefault()
                })
                .ToList();
 

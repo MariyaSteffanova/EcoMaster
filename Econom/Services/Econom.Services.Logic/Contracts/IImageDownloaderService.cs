@@ -4,6 +4,6 @@
 
     public interface IImageDownloaderService
     {
-        byte[] DownloadFromUri(string uri);
+       Task<byte[]> DownloadFromUri(string uri);
     }
 }

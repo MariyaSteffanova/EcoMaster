@@ -2,11 +2,11 @@
 @model ProductBaseViewModel
 
 <div>
-    <div>
+    <div style="border:10px solid red">
         <h1>@Model.Description</h1>
         
-        @(Html.Image(Model.Image,
+        @(Html.Image(Url.Action("GetImage", "Images", new {url = Model.ImageUrl }),
                Model.Description,
-               new { @class = "b" }))
+               new { @class = "img-found-product" }))
     </div>
 </div>
