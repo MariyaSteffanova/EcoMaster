@@ -1,16 +1,17 @@
 ﻿namespace Econom.Services.Data
 {
     using Contracts;
+    using Econom.Data;
     using Econom.Data.Contracts;
     using Econom.Data.Models;
     using System.Linq;
 
     public class ProductService : IProductService
     {
-        private readonly IRepository<Product> products;
+        private readonly IRepository<IEconomDbContext, Product> products;
         private readonly IBarcodeService barcodeService;
 
-        public ProductService(IRepository<Product> products, IBarcodeService barcodeService)
+        public ProductService(IRepository<IEconomDbContext, Product> products, IBarcodeService barcodeService)
         {
             this.products = products;
             this.barcodeService = barcodeService;

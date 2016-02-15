@@ -5,15 +5,10 @@
     using System.Data.Entity.Infrastructure;
 
     using Models;
+    using global::Data.Contracts;
 
-    public interface IEconomDbContext : IDisposable
+    public interface IEconomDbContext : IDisposable, IDbContext
     {
         IDbSet<User> Users { get; set; }
-
-        DbSet<TEntity> Set<TEntity>() where TEntity : class;
-
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
-
-        int SaveChanges();
     }
 }

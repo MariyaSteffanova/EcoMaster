@@ -7,14 +7,14 @@
     using Data.TransferModels;
     using Services.Logic.Contracts;
     using ItemMasterProduct = ItemMasterData.Models.Product;
-
+    using ItemMasterData.Data;
     public class BarcodeSearcherService : IBarcodeSearcherService
     {
-        private readonly IRepository<ItemMasterProduct> itemMasterProducts;
+        private readonly IRepository<IItemMasterDbContext, ItemMasterProduct> itemMasterProducts;
         private readonly IImageDownloaderService imageDownloader;
         private readonly IImageProcessorService imageProcessor;
 
-        public BarcodeSearcherService(IRepository<ItemMasterProduct> itemMasterProducts, IImageDownloaderService imageDownloader, IImageProcessorService imageProcessor)
+        public BarcodeSearcherService(IRepository<IItemMasterDbContext, ItemMasterProduct> itemMasterProducts, IImageDownloaderService imageDownloader, IImageProcessorService imageProcessor)
         {
             this.itemMasterProducts = itemMasterProducts;
             this.imageDownloader = imageDownloader;

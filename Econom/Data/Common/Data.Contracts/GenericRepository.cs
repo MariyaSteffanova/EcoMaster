@@ -1,4 +1,4 @@
-﻿namespace Econom.Data.Repositories
+﻿namespace Econom.Data.Contracts
 {
     using System;
     using System.Data.Entity;
@@ -6,10 +6,13 @@
     using System.Linq;
 
     using Contracts;
+    using global::Data.Contracts;
 
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<TContext, T> : IRepository<TContext, T>
+        where TContext : IDbContext
+        where T : class
     {
-        public GenericRepository(IEconomDbContext context)
+        public GenericRepository(TContext context)
         {
             if (context == null)
             {
@@ -22,7 +25,7 @@
 
         protected IDbSet<T> DbSet { get; set; }
 
-        protected IEconomDbContext Context { get; set; }
+        protected IDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {

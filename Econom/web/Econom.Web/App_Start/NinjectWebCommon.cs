@@ -13,23 +13,23 @@ namespace Econom.Web.App_Start
     using Ninject.Web.Common;
 
     using Data.Contracts;
-    using Data.Repositories;
     using Data;
     using Common;
-    public static class NinjectWebCommon 
+    using ItemMasterData.Data;
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Econom.Web.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -66,14 +66,18 @@ namespace Econom.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(typeof(IRepository<,>)).To(typeof(GenericRepository<,>));            
+
             kernel.Bind<IEconomDbContext>().To<EconomDbContext>().InRequestScope();
+            kernel.Bind<IItemMasterDbContext>().To<ItemMasterDbContext>().InRequestScope();
 
             kernel.Bind(k => k
                 .From(
-                    GlobalConstants.DataServicesAssembly)
+                    GlobalConstants.DataServicesAssembly,
+                    GlobalConstants.SearchersServicesAssembly,
+                    GlobalConstants.LogicServicesAssembly)
                .SelectAllClasses()
                .BindDefaultInterface());
-        }        
+        }
     }
 }

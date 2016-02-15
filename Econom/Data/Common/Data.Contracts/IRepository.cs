@@ -1,11 +1,14 @@
 ﻿namespace Econom.Data.Contracts
 {
+    using global::Data.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
 
-    public interface IRepository<T> where T : class
+    public interface IRepository<TContext, T>
+        where TContext : IDbContext
+        where T : class
     {
         IQueryable<T> All();
 

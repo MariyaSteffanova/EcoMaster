@@ -8,11 +8,12 @@
     using Contracts;
     using Econom.Data.Models;
     using Econom.Data.Contracts;
+    using Econom.Data;
     public class UserService : IUserService
     {
-        private readonly IRepository<User> users;
+        private readonly IRepository<IEconomDbContext, User> users;
 
-        public UserService(IRepository<User> users)
+        public UserService(IRepository<IEconomDbContext, User> users)
         {
             this.users = users;
         }
