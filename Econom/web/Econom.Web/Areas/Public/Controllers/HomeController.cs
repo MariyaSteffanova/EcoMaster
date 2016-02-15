@@ -2,9 +2,6 @@
 {
     using System.Web.Mvc;
 
-    using Econom.Services.Data.Contracts;
-    using Web.Controllers;
-
     public class HomeController : BaseController
     {
         public ActionResult Index()

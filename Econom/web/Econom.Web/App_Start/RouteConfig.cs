@@ -13,12 +13,18 @@ namespace Econom.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-          //  routes.MapRoute("Default", "{controller}/{action}", new { action = "Index" });
+            //  routes.MapRoute("Default", "{controller}/{action}", new { action = "Index" });
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new {  action = "Index", id = UrlParameter.Optional }
+                url: "rdfygyjh/{controller}/{action}/{id}",
+                defaults: new
+                {
+                    Area = "Public",
+                    controller = "Home",
+                    action = "Index",
+                    id = UrlParameter.Optional
+                }
             );
         }
     }

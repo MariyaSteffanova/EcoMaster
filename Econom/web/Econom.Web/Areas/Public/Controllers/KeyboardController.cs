@@ -4,7 +4,6 @@
     using System.Web.Mvc;
     using Services.Searchers.Contracts;
     using ViewModels.Products;
-    using Web.Controllers;
 
     public class KeyboardController : BaseController
     {

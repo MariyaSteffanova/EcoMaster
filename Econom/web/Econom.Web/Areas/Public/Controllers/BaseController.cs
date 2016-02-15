@@ -1,4 +1,4 @@
-﻿namespace Econom.Web.Controllers
+﻿namespace Econom.Web.Areas.Public.Controllers
 {
     using System;
     using System.Collections.Generic;
