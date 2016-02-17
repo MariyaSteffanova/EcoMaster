@@ -1,7 +1,42 @@
-﻿
+﻿@using Kendo.Mvc.UI;
+@model Econom.Web.Areas.Private.InputModels.HomeStorageInputModel
 @{
     ViewBag.Title = "Create";
 }
-
+@Styles.Render("~/Content/Kendo-css")
+@Scripts.Render("~/bundles/kendo")
 <h2>Create</h2>
 
+<div>
+    @using (Html.BeginForm("Create", "HomeStorage", FormMethod.Post, new { @name = "form-proceed-order" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @(Html.Kendo().PanelBar()
+            .Name("panelbar")
+            .ExpandMode(PanelBarExpandMode.Single)
+             .Items(panelbar =>
+             {
+             // Personal Info
+             panelbar.Add().Text("Add your flatmates")
+                 .Expanded(true)
+                 .Content(
+                @<div>
+                    @*@(Html.Kendo().Grid(Model.FlatmatesEmails)
+                    .Name("flatmates")
+                    .Columns(columns => {
+                        
+                    })
+                    )*@
+Grid here
+                </div>);
+             // Second
+             panelbar.Add().Text("Location")
+            .Content(
+                @<div>
+                    <h1>2222</h1>
+                </div>);
+             })
+        )
+    }
+</div>

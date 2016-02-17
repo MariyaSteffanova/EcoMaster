@@ -17,7 +17,7 @@ namespace Econom.Web
 
             routes.MapRoute(
                 name: "Default",
-                url: "rdfygyjh/{controller}/{action}/{id}",
+                url: "{controller}/{action}/{id}",
                 defaults: new
                 {
                     Area = "Public",

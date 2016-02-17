@@ -10,7 +10,6 @@
 
     using Common;
     using Econom.Services.Logic.Contracts;
-    using Econom.Common;
     public class ImageProcessorService : IImageProcessorService
     {
         public Task<byte[]> Resize(byte[] originalImage, int width)

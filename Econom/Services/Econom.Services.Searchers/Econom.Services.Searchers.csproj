@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Econom.Services.Searchers</RootNamespace>
     <AssemblyName>Econom.Services.Searchers</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,10 @@
       <Project>{e275f6a7-50c9-4f43-aea4-a874b59680eb}</Project>
       <Name>Data.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
+      <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
+      <Name>Econom.Data.TransferModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\ItemMasterData\ItemMasterData.Data\ItemMasterData.Data.csproj">
       <Project>{c0b356c9-d79f-4e8b-93b4-0915897ea73a}</Project>
       <Name>ItemMasterData.Data</Name>
@@ -58,14 +63,6 @@
     <ProjectReference Include="..\..\Data\ItemMasterData\ItemMasterData.Models\ItemMasterData.Models.csproj">
       <Project>{b78a28a2-a501-4039-8e86-e878a75b788a}</Project>
       <Name>ItemMasterData.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
-      <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
-      <Name>Econom.Data.TransferModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Econom.Services.Common\Econom.Services.Common.csproj">
-      <Project>{44fbe2be-11ea-4f20-822a-11f5f2d89a68}</Project>
-      <Name>Econom.Services.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Econom.Services.Logic\Econom.Services.Logic.csproj">
       <Project>{4e9befe0-5519-4129-9b27-1a23654438e4}</Project>

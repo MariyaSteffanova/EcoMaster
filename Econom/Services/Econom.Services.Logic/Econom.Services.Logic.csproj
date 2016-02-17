@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Econom.Services.Logic</RootNamespace>
     <AssemblyName>Econom.Services.Logic</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,10 +59,6 @@
     <ProjectReference Include="..\..\Common\Econom.Common\Econom.Common.csproj">
       <Project>{c8da2c49-bce9-4446-a548-5fcfa36b1296}</Project>
       <Name>Econom.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Econom.Services.Common\Econom.Services.Common.csproj">
-      <Project>{44fbe2be-11ea-4f20-822a-11f5f2d89a68}</Project>
-      <Name>Econom.Services.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

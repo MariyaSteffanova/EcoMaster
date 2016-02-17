@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Econom.Web</RootNamespace>
     <AssemblyName>Econom.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,10 @@
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -154,13 +159,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -189,9 +194,7 @@
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -202,6 +205,7 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
@@ -379,6 +383,10 @@
       <Project>{e275f6a7-50c9-4f43-aea4-a874b59680eb}</Project>
       <Name>Data.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
+      <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
+      <Name>Econom.Data.TransferModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\EconomData\Econom.Data.Models\Econom.Data.Models.csproj">
       <Project>{1c6815db-0f42-40b7-b310-57690b317bd1}</Project>
       <Name>Econom.Data.Models</Name>
@@ -395,10 +403,6 @@
       <Project>{b78a28a2-a501-4039-8e86-e878a75b788a}</Project>
       <Name>ItemMasterData.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
-      <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
-      <Name>Econom.Data.TransferModels</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Services\Econom.Services.Data\Econom.Services.Data.csproj">
       <Project>{e9140512-f401-4f47-a748-f83e22e60562}</Project>
       <Name>Econom.Services.Data</Name>
@@ -410,6 +414,10 @@
     <ProjectReference Include="..\..\Services\Econom.Services.Searchers\Econom.Services.Searchers.csproj">
       <Project>{aff67409-693d-4de6-b42a-d628fccd013a}</Project>
       <Name>Econom.Services.Searchers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Econom.Web.Infrastructure\Econom.Web.Infrastructure.csproj">
+      <Project>{6813dc53-5eee-4507-8604-5301ee51a0d3}</Project>
+      <Name>Econom.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

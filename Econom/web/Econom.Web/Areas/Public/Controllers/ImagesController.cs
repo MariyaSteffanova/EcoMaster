@@ -25,6 +25,7 @@ namespace Econom.Web.Areas.Public.Controllers
 
             var image = await this.imageDownloader.DownloadFromUri(url);
             var test = await this.imageProcessor.Resize(image, 200);
+            Response.Flush();
            return new FileContentResult(test, "image/jpeg");  
         }
     }
