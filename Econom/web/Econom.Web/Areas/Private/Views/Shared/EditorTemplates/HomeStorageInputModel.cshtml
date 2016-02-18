@@ -1,0 +1,37 @@
+﻿@model Econom.Web.Areas.Private.InputModels.HomeStorageInputModel
+
+<div>
+    @using (Html.BeginForm("Create", "HomeStorage", new { @Area = "Private" }, FormMethod.Post, new { @class = "form-horizontal text-center" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Town, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Town, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Town, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Street, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Street, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(m => m.StreetNumber, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.StreetNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StreetNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <input type="submit" value="Create" class="btn btn-success" />
+    }
+</div>
