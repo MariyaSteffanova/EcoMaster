@@ -15,10 +15,9 @@
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Private_default",
-                "Private/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "Econom.Web.Areas.Private.Controllers" });
+              name: "Private_default",
+                url: "Private/{controller}/{action}",
+                defaults: new { controller = "HomeStorage", action = "Index" });
         }
     }
 }

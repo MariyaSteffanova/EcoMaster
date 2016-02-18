@@ -16,13 +16,13 @@
             this.users = userService;
         }
 
-        [HomeStorageOwner]
-        public ActionResult Index()
+        //[HomeStorageOwner]
+        public ActionResult Index(int id)
         {
             return this.View();
         }
 
-        [HomeStorageOwner]
+      //  [HomeStorageOwner]
         public ActionResult AddProduct(int id)
         {
             var username = this.User.Identity.Name;
