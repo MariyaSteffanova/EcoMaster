@@ -1,9 +1,10 @@
-﻿using Econom.Services.Logic.Contracts;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-
-namespace Econom.Web.Areas.Public.Controllers
+﻿namespace Econom.Web.Areas.Public.Controllers
 {
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
+
+    using Econom.Services.Logic.Contracts;
+
     public class ImagesController : BaseController
     {
         private readonly IImageDownloaderService imageDownloader;
@@ -25,7 +26,7 @@ namespace Econom.Web.Areas.Public.Controllers
 
             var image = await this.imageDownloader.DownloadFromUri(url);
             var test = await this.imageProcessor.Resize(image, 200);
-         //   Response.Flush();
+
             return new FileContentResult(image, "image/jpeg");
         }
     }

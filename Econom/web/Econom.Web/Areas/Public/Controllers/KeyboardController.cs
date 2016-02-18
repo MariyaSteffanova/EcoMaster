@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+
     using Services.Searchers.Contracts;
     using ViewModels.Products;
 
@@ -16,7 +17,7 @@
 
         public ActionResult Input()
         {
-            return View(string.Empty);
+            return this.View(string.Empty);
         }
 
         public ActionResult Find(string barcode)
@@ -32,7 +33,7 @@
                                 })
                                 .ToList();
 
-            return View("Found", result);
+            return this.View("Found", result);
         }
     }
 }

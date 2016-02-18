@@ -1,16 +1,10 @@
-﻿using Microsoft.AspNet.Identity;
-
-using Econom.Data.Models;
-using Econom.Services.Data.Contracts;
-using Econom.Web.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Econom.Web.Areas.Private.Controllers
+﻿namespace Econom.Web.Areas.Private.Controllers
 {
+    using System.Web.Mvc;
+
+    using Econom.Data.Models;
+    using Econom.Services.Data.Contracts;
+   
     [Authorize]
     public class UserController : Controller
     {
@@ -19,7 +13,7 @@ namespace Econom.Web.Areas.Private.Controllers
         public UserController(IUserService users)
         {
             this.users = users;
-            //this.SetUser();
+            //// this.SetUser();
         }
 
         public User UserProfile { get; set; }

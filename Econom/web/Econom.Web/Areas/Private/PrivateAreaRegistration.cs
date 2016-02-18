@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace Econom.Web.Areas.Private
+﻿namespace Econom.Web.Areas.Private
 {
+    using System.Web.Mvc;
+
     public class PrivateAreaRegistration : AreaRegistration
     {
         public override string AreaName
@@ -18,8 +18,7 @@ namespace Econom.Web.Areas.Private
                 "Private_default",
                 "Private/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "Econom.Web.Areas.Private.Controllers" }
-            );
+                namespaces: new[] { "Econom.Web.Areas.Private.Controllers" });
         }
     }
 }

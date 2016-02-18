@@ -33,21 +33,17 @@
         [HttpGet]
         public ActionResult Create()
         {
-
             return this.View(new HomeStorageInputModel());
         }
 
         [HttpPost]
         public ActionResult Create(HomeStorageInputModel model)
         {
-
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
-
-            // Create and keep id
-
+                       
             return this.View();
         }
     }

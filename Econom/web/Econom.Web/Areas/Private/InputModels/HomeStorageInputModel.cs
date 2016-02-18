@@ -1,15 +1,14 @@
-﻿using Econom.Data.Models;
-using Econom.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using System.ComponentModel.DataAnnotations;
-
-namespace Econom.Web.Areas.Private.InputModels
+﻿namespace Econom.Web.Areas.Private.InputModels
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+
+    using AutoMapper;
+
+    using Econom.Data.Models;
+    using Econom.Web.Infrastructure.Mapping;
+
     public class HomeStorageInputModel : IMapFrom<HomeStorage>, IHaveCustomMappings
     {
         [Required]

@@ -1,10 +1,10 @@
-﻿using System;
-using AutoMapper;
-using Econom.Data.Models;
-using Econom.Web.Infrastructure.Mapping;
-
-namespace Econom.Web.Areas.Private.ViewModels
+﻿namespace Econom.Web.Areas.Private.ViewModels
 {
+    using AutoMapper;
+
+    using Econom.Data.Models;
+    using Econom.Web.Infrastructure.Mapping;
+
     public class FlatmateViewModel : IMapFrom<User>, IHaveCustomMappings
     {
         public string Id { get; set; }

@@ -1,18 +1,16 @@
-﻿using Econom.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace Econom.Web.HtmlHelpers
+﻿namespace Econom.Web.HtmlHelpers
 {
+    using System;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
+    using Econom.Common;
+
     public static class HtmlHelpers
     {
-        public static MvcHtmlString Image(this HtmlHelper helper,
+        public static MvcHtmlString Image(
+            this HtmlHelper helper,
                                 string url,
                                 string altText,
                                 object htmlAttributes)
@@ -24,7 +22,8 @@ namespace Econom.Web.HtmlHelpers
             return new MvcHtmlString(builder.ToString(TagRenderMode.SelfClosing));
         }
 
-        public static MvcHtmlString Image(this HtmlHelper helper,
+        public static MvcHtmlString Image(
+            this HtmlHelper helper,
                                 byte[] imageBase64Data,
                                 string altText,
                                 object htmlAttributes)

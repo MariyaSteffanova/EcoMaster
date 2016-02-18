@@ -6,16 +6,17 @@ namespace Econom.Web.App_Start
     using System;
     using System.Web;
 
+    using Common;
+    using Data;
+    using Data.Contracts;
+    using ItemMasterData.Data;
+
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
 
-    using Data.Contracts;
-    using Data;
-    using Common;
-    using ItemMasterData.Data;
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -66,7 +67,7 @@ namespace Econom.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(IRepository<,>)).To(typeof(GenericRepository<,>));            
+            kernel.Bind(typeof(IRepository<,>)).To(typeof(GenericRepository<,>));
 
             kernel.Bind<IEconomDbContext>().To<EconomDbContext>().InRequestScope();
             kernel.Bind<IItemMasterDbContext>().To<ItemMasterDbContext>().InRequestScope();

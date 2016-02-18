@@ -1,8 +1,8 @@
-﻿using System.Web;
-using System.Web.Optimization;
-
-namespace Econom.Web
+﻿namespace Econom.Web
 {
+    using System.Web;
+    using System.Web.Optimization;
+
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
@@ -26,28 +26,24 @@ namespace Econom.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
-                     "~/Scripts/appStart.js"
-                ));
+                     "~/Scripts/appStart.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/theme").Include(
                 "~/Content/theme/js/vendor/jquery-2.1.4.min.js",
                 "~/Content/theme/js/vendor/bootstrap.min.js",
                 "~/Content/theme/js/vendor/vendor.js",
                 "~/Content/theme/js/variable.js",
-                "~/Content/theme/js/main.js"
-                ));
+                "~/Content/theme/js/main.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                 "~/Scripts/Kendo/kendo.all.min.js",
-                "~/Scripts/Kendo/kendo.aspnetmvc.min.js"
-                ));
+                "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/theme").Include(
                 "~/Content/theme/css/style.css",
                 "~/Content/theme/css/color.css",
                 "~/Content/theme/css/title-size.css",
-                "~/Content/theme/css/custom.cs"
-                ));
+                "~/Content/theme/css/custom.cs"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
@@ -57,29 +53,24 @@ namespace Econom.Web
 
             bundles.Add(new StyleBundle("~/Content/register").Include(
                 "~/Content/pages/account.css",
-                "~/Content/file-upload.css"
-                ));
+                "~/Content/file-upload.css"));
 
             bundles.Add(new StyleBundle("~/Content/login").Include(
-               "~/Content/pages/account.css"
-               ));
+               "~/Content/pages/account.css"));
 
             bundles.Add(new StyleBundle("~/Content/home").Include(
               "~/Content/font-awesome.min.css",
-                "~/Content/pages/home.css"
-              ));
+                "~/Content/pages/home.css"));
 
             bundles.Add(new StyleBundle("~/Content/keyboard").Include(
-               "~/Content/pages/keyboard-input.css"
-             ));
+               "~/Content/pages/keyboard-input.css"));
 
             bundles.Add(new StyleBundle("~/Content/found").Include(
-                "~/Content/pages/found.css"
-                ));
+                "~/Content/pages/found.css"));
+
             bundles.Add(new StyleBundle("~/Content/kendo-css").Include(
                 "~/Content/kendo/kendo.common.min.css",
-                "~/Content/kendo/kendo.metro.min.css"
-                ));
+                "~/Content/kendo/kendo.metro.min.css"));
         }
     }
 }

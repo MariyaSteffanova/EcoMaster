@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Econom.Web.Startup))]
+
 namespace Econom.Web
 {
     public partial class Startup

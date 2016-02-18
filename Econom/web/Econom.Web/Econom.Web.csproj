@@ -219,10 +219,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Private\Controllers\FlatmatesController.cs" />
     <Compile Include="Areas\Private\Controllers\HomeStorageController.cs" />
@@ -234,24 +238,34 @@
     <Compile Include="Areas\Public\Controllers\ImagesController.cs" />
     <Compile Include="Areas\Public\Controllers\IntroController.cs" />
     <Compile Include="Areas\Public\Controllers\KeyboardController.cs" />
+    <Compile Include="Areas\Public\InputModels\Account\RegisterInputModel.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
-    <Compile Include="Areas\Public\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Public\Controllers\AccountController.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Areas\Public\Controllers\BaseController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Public\Controllers\ManageController.cs" />
+    <Compile Include="Areas\Public\Controllers\ManageController.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Areas\Public\ViewModels\Products\ProductBaseViewModel.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Public\InputModels\Account\RegisterInputModel.cs" />
     <Compile Include="HtmlHelpers\HtmlHelpers.cs" />
     <Compile Include="Infrastructure\Filters\HomeStorageOwnerAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Areas\Public\ViewModels\AccountViewModels.cs" />
+    <Compile Include="Areas\Public\ViewModels\AccountViewModels.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Areas\Public\ViewModels\Account\RegisterViewModel.cs" />
-    <Compile Include="Areas\Public\ViewModels\ManageViewModels.cs" />
+    <Compile Include="Areas\Public\ViewModels\ManageViewModels.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-material-design.min.css" />

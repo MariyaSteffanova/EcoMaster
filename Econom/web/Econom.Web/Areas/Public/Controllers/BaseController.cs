@@ -1,20 +1,11 @@
 ﻿namespace Econom.Web.Areas.Public.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-
-    using Econom.Data;
-    using Econom.Data.Models;
 
     // TODO: Rename the namespace if not moving from here
     public class BaseController : Controller
     {
-
         protected override void OnException(ExceptionContext filterContext)
         {
             if (filterContext.ExceptionHandled)
