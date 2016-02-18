@@ -10,7 +10,7 @@
     using Econom.Web.ViewModels;
     using Econom.Data.Models;
     using Econom.Web.InputModels.Account;
-    using Econom.Web.Controllers;
+    using Infrastructure.BaseControllers;
 
     [Authorize]
     public class AccountController : BaseController

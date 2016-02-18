@@ -2,6 +2,8 @@
 {
     using System.Web.Mvc;
 
+    using Infrastructure.BaseControllers;
+
     public class HomeController : BaseController
     {
         public ActionResult Index()

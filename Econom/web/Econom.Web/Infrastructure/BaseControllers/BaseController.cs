@@ -1,4 +1,4 @@
-﻿namespace Econom.Web.Areas.Public.Controllers
+﻿namespace Econom.Web.Infrastructure.BaseControllers
 {
     using System.Web;
     using System.Web.Mvc;

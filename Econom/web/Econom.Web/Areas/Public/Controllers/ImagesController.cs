@@ -4,6 +4,7 @@
     using System.Web.Mvc;
 
     using Econom.Services.Logic.Contracts;
+    using Infrastructure.BaseControllers;
 
     public class ImagesController : BaseController
     {

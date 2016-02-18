@@ -5,6 +5,7 @@
 
     using Services.Searchers.Contracts;
     using ViewModels.Products;
+    using Infrastructure.BaseControllers;
 
     public class KeyboardController : BaseController
     {
