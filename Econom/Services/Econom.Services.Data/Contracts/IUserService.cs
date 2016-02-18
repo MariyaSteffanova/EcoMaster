@@ -3,6 +3,7 @@
     using System.Linq;
 
     using Econom.Data.Models;
+    using System.Collections.Generic;
 
     public interface IUserService
     {
@@ -11,5 +12,7 @@
         User GetByUserName(string username);
 
         IQueryable<User> GetAll();
+
+        IQueryable<User> GetByEmails(ICollection<string> emails);
     }
 }

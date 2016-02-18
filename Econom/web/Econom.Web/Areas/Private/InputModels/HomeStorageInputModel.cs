@@ -6,13 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using System.ComponentModel.DataAnnotations;
 
 namespace Econom.Web.Areas.Private.InputModels
 {
     public class HomeStorageInputModel : IMapFrom<HomeStorage>, IHaveCustomMappings
     {
+        [Required]
         public string Country { get; set; }
 
+        [Required]
         public string Town { get; set; }
 
         public string Street { get; set; }

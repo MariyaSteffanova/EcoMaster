@@ -18,7 +18,7 @@ namespace Econom.Web.Areas.Private
                 "Private_default",
                 "Private/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                 new[] { "Econom.Web.Areas.Private.Controllers" }
+                namespaces: new[] { "Econom.Web.Areas.Private.Controllers" }
             );
         }
     }

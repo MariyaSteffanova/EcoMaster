@@ -9,6 +9,7 @@
     using Econom.Data.Models;
     using Econom.Data.Contracts;
     using Econom.Data;
+    using System.Collections.Generic;
     public class UserService : IUserService
     {
         private readonly IRepository<IEconomDbContext, User> users;
@@ -21,6 +22,13 @@
         public IQueryable<User> GetAll()
         {
             return this.users.All();
+        }
+
+        public IQueryable<User> GetByEmails(ICollection<string> emails)
+        {
+            return this.users.All()
+                .Where(x => emails.Contains(x.Email))
+                .Select(x => x);
         }
 
         public User GetById(string id)

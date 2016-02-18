@@ -1,0 +1,35 @@
+﻿@using Kendo.Mvc.UI;
+@model ICollection<Econom.Web.Areas.Private.ViewModels.FlatmateViewModel>
+
+<h2>_FlatmatesGridView</h2>
+
+@(Html.Kendo().Grid(Model)
+   .Name("flatmatesGrid")
+   .Columns(columns =>
+   {
+       columns.Bound(c => c.ImageUrl).ClientTemplate(
+                     @"<div class='customer-photo'
+                        style='background-image: url(../../content/web/Customers/#:data.ImageUrl#.jpg);'></div>
+               "
+)
+               .Width(240);
+       columns.Bound(c => c.Name);
+   })
+   .ToolBar(toolbar =>
+   {
+       toolbar.Create();
+   })
+    .Scrollable()
+    .Sortable()
+    .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Model(model => model.Id(p => p.Id))
+        .Read(read => read.Action("Flatmates", "Get"))
+        .Create(create => create.Action("Flatmates", "Add"))
+        .PageSize(20))
+
+)

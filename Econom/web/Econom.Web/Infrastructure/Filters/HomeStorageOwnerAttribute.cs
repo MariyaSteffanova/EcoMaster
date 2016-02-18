@@ -32,10 +32,8 @@
 
                 //filterContext.Result.ExecuteResult(filterContext.Controller.ControllerContext);
 
-                filterContext.Result = new ViewResult
-                {
-                    ViewName = "Create"
-                };
+                filterContext.Result = new RedirectResult("/Private/HomeStorage/Create");
+
             }
             base.OnActionExecuting(filterContext);
         }

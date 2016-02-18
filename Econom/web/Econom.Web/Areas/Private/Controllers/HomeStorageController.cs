@@ -1,18 +1,11 @@
-﻿using Econom.Data;
-using Econom.Data.Contracts;
-using Econom.Data.Models;
-using Econom.Services.Data;
-using Econom.Services.Data.Contracts;
-using Econom.Web.Controllers;
-using Econom.Web.Infrastructure.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Econom.Web.Areas.Private.Controllers
+﻿namespace Econom.Web.Areas.Private.Controllers
 {
+    using System.Web.Mvc;
+
+    using Econom.Services.Data.Contracts;
+    using Econom.Web.Areas.Private.InputModels;
+    using Econom.Web.Infrastructure.Filters;
+
     [Authorize]
     public class HomeStorageController : Controller
     {
@@ -23,23 +16,39 @@ namespace Econom.Web.Areas.Private.Controllers
             this.users = userService;
         }
 
-        // GET: Private/HomeStorage
+        [HomeStorageOwner]
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [HomeStorageOwner]
         public ActionResult AddProduct(int id)
         {
             var username = this.User.Identity.Name;
-        
-            return View("Index");
+
+            return this.View("Index");
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
-            return View();
+
+            return this.View(new HomeStorageInputModel());
+        }
+
+        [HttpPost]
+        public ActionResult Create(HomeStorageInputModel model)
+        {
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            // Create and keep id
+
+            return this.View();
         }
     }
 }

@@ -224,11 +224,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Private\Controllers\FlatmatesController.cs" />
     <Compile Include="Areas\Private\Controllers\HomeStorageController.cs" />
     <Compile Include="Areas\Private\Controllers\UserController.cs" />
     <Compile Include="Areas\Private\InputModels\HomeStorageInputModel.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Areas\Private\ViewModels\HomeStorageViewModel.cs" />
+    <Compile Include="Areas\Private\ViewModels\FlatmateViewModel.cs" />
     <Compile Include="Areas\Public\Controllers\ImagesController.cs" />
     <Compile Include="Areas\Public\Controllers\IntroController.cs" />
     <Compile Include="Areas\Public\Controllers\KeyboardController.cs" />
@@ -300,6 +302,7 @@
     <Content Include="Areas\Private\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Private\Views\HomeStorage\Create.cshtml" />
     <Content Include="Areas\Private\Views\HomeStorage\Index.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\_FlatmatesGridView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -364,6 +367,7 @@
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Private\Views\Flatmates\" />
     <Folder Include="Areas\Private\Views\User\" />
     <Folder Include="Areas\Public\Views\Images\" />
     <Folder Include="Areas\Public\Views\StorageProducts\" />
