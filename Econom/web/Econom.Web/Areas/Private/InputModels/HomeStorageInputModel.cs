@@ -9,7 +9,7 @@
     using Econom.Data.Models;
     using Econom.Web.Infrastructure.Mapping;
 
-    public class HomeStorageInputModel : IMapFrom<HomeStorage>, IHaveCustomMappings
+    public class HomeStorageInputModel : IMapTo<HomeStorage>, IMapFrom<HomeStorage>, IHaveCustomMappings
     {
         [Required]
         public string Country { get; set; }
@@ -23,12 +23,27 @@
 
         public string Address { get; set; }
 
+        [IgnoreMap]
         public ICollection<string> FlatmatesEmails { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
+            configuration.CreateMap<HomeStorageInputModel, HomeStorage>()
+                 .ForMember(x => x.Location, opt => opt.MapFrom(x => new Location
+                 {
+                     Country = x.Country,
+                     Town = x.Town,
+                     Street = x.Street,
+                     StreetNumber = x.StreetNumber
+                 }));
+
             configuration.CreateMap<HomeStorage, HomeStorageInputModel>()
-                 .ForMember(x => x.FlatmatesEmails, opt => opt.MapFrom(x => x.Owners.Select(o => o.Email)));
+               .ForMember(x => x.FlatmatesEmails, opt => opt.MapFrom(x => x.Owners.Select(o => o.Email)))
+               .ForMember(x => x.Country, opt => opt.MapFrom(l => l.Location.Country))
+               .ForMember(x => x.Town, opt => opt.MapFrom(l => l.Location.Town))
+               .ForMember(x => x.Street, opt => opt.MapFrom(l => l.Location.Street))
+               .ForMember(x => x.StreetNumber, opt => opt.MapFrom(l => l.Location.StreetNumber));
+
         }
     }
 }

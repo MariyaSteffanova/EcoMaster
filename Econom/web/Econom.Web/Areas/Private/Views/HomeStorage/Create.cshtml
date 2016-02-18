@@ -2,7 +2,7 @@
 @model Econom.Web.Areas.Private.InputModels.HomeStorageInputModel
 @{
     ViewBag.Title = "Create";
-
+    bool isCreated = (bool)(ViewBag.Created ?? false);
 }
 @Styles.Render("~/Content/Kendo-css")
 @Scripts.Render("~/bundles/kendo")
@@ -12,58 +12,27 @@
 
 
     @{Html.Kendo().PanelBar()
-                                                                            .Name("panelbar")
-                                                                            .ExpandMode(PanelBarExpandMode.Single)
-                                                                             .Items(panelbar =>
-                                                                             {
-                                                                         // Personal Info
-                                                                         panelbar.Add().Text("Location")
-                                                                         .Expanded(true)
+                    .Name("panelbar")
+                    .ExpandMode(PanelBarExpandMode.Single)
+                    .Items(panelbar =>
+                    {
+                // Personal Info
+                panelbar.Add()
+                        .Text("Location")
+                        .Expanded(!isCreated)
+                        .Content(@<div>@Html.EditorFor(model => model)</div>);
 
-                                                                         .Content(
-                                                                            @<div>
-                                                                                @using (Html.BeginForm("Create", "HomeStorage", new { @Area = "Private" }, FormMethod.Post, new { @class = "form-horizontal text-center" }))
-                                                                                {
-                                                                                    @Html.AntiForgeryToken()
-                                                                                    <div class="form-group row">
-                                                                                        @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
-                                                                                        <div class="col-md-10">
-                                                                                            @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
-                                                                                            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        @Html.LabelFor(m => m.Town, new { @class = "col-md-2 control-label" })
-                                                                                        <div class="col-md-10">
-                                                                                            @Html.TextBoxFor(m => m.Town, new { @class = "form-control" })
-                                                                                            @Html.ValidationMessageFor(m => m.Town, "", new { @class = "text-danger" })
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        @Html.LabelFor(m => m.Street, new { @class = "col-md-2 control-label" })
-                                                                                        <div class="col-md-10">
-                                                                                            @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
-                                                                                            @Html.ValidationMessageFor(m => m.Street, "", new { @class = "text-danger" })
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        @Html.LabelFor(m => m.StreetNumber, new { @class = "col-md-2 control-label" })
-                                                                                        <div class="col-md-10">
-                                                                                            @Html.TextBoxFor(m => m.StreetNumber, new { @class = "form-control" })
-                                                                                            @Html.ValidationMessageFor(m => m.StreetNumber, "", new { @class = "text-danger" })
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <input type="submit" value="Create" class="btn btn-success" />
-                                                                                }
-                                                                            </div>);
+                    panelbar.Add()
+                        .Text("Add your flatmates")
+                        .Expanded(isCreated)
+                        .Content(
+                        @<div>
+                            @Html.Action("Get", "Flatmates", new { emails = Model.FlatmatesEmails })
+                            Grid here
+                        </div>);
+                    })
+         .Render();}
 
-                                                                             panelbar.Add().Text("Add your flatmates")
-                                                                       .Content(
-                                                                                @<div>
-                                                                                    @Html.Action("Get", "Flatmates", new { emails = Model.FlatmatesEmails })
-                                                                                    Grid here
-                                                                                </div>);
-                                                                             }).Render();}
     // Second
 
 

@@ -2,27 +2,33 @@
 {
     using System.Web.Mvc;
 
+    using Data.Models;
     using Econom.Services.Data.Contracts;
     using Econom.Web.Areas.Private.InputModels;
-    using Econom.Web.Infrastructure.Filters;
+    using Infrastructure.BaseControllers;
+    using Infrastructure.Filters;
+
+    using Microsoft.AspNet.Identity;
 
     [Authorize]
-    public class HomeStorageController : Controller
+    public class HomeStorageController : BaseMapController
     {
         private readonly IUserService users;
+        private readonly IHomeStorageService storages;
 
-        public HomeStorageController(IUserService userService)
+        public HomeStorageController(IUserService userService, IHomeStorageService storages)
         {
             this.users = userService;
+            this.storages = storages;
         }
 
-        //[HomeStorageOwner]
+        [HomeStorageOwner]
         public ActionResult Index(int id)
         {
             return this.View();
         }
 
-      //  [HomeStorageOwner]
+        [HomeStorageOwner]
         public ActionResult AddProduct(int id)
         {
             var username = this.User.Identity.Name;
@@ -43,8 +49,14 @@
             {
                 return this.View(model);
             }
-                       
-            return this.View();
+
+            var dbModel = this.Mapper.Map<HomeStorage>(model);
+            var created = this.storages.Create(dbModel, this.User.Identity.GetUserId());
+            model = this.Mapper.Map<HomeStorageInputModel>(created);
+
+            ViewBag.Created = true;
+
+            return this.View(model);
         }
     }
 }
