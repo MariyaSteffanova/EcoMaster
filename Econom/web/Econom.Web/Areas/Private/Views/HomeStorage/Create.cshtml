@@ -6,35 +6,27 @@
 }
 @Styles.Render("~/Content/Kendo-css")
 @Scripts.Render("~/bundles/kendo")
-<h2>Create</h2>
+<h2 class="kendo-style-bg title">Create your Home Storage</h2>
 
 <div>
-
-
     @{Html.Kendo().PanelBar()
-                    .Name("panelbar")
-                    .ExpandMode(PanelBarExpandMode.Single)
-                    .Items(panelbar =>
-                    {
-                // Personal Info
-                panelbar.Add()
-                        .Text("Location")
-                        .Expanded(!isCreated)
-                        .Content(@<div>@Html.EditorFor(model => model)</div>);
-
-                    panelbar.Add()
-                        .Text("Add your flatmates")
-                        .Expanded(isCreated)
-                        .Content(
-                        @<div>
-                            @Html.Action("Get", "Flatmates", new { emails = Model.FlatmatesEmails })
-                            Grid here
-                        </div>);
-                    })
-         .Render();}
-
-    // Second
-
-
-
+        .Name("panelbar")
+        .ExpandMode(PanelBarExpandMode.Single)
+        .Items(panelbar =>
+        {
+            // Location Info
+            panelbar.Add()
+                .Text("1. Location information")
+                .Expanded(!isCreated)
+                .Content(@<div>@Html.EditorFor(model => model)</div>);
+            // Flatmates
+             panelbar.Add()
+                .Text("2. Flatmates")
+                .Expanded(isCreated)
+                .Content(
+                @<div>
+                    @Html.Action("Get", "Flatmates", new { emails = Model.FlatmatesEmails })
+                </div>);
+        })
+    .Render();}
 </div>

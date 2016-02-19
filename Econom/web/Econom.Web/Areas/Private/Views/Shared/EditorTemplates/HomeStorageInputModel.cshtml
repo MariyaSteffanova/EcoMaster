@@ -1,6 +1,8 @@
 ﻿@model Econom.Web.Areas.Private.InputModels.HomeStorageInputModel
 
 <div>
+    <h3 class="kendo-style-bg title" >This information will be used for calculating the 
+    <a class="btn-link" title="Eco Index is calculation in percentage how 'eco' is given product.The calculation parameters include spend water, ...">EI</a> for the products in your Home Storage</h3>
     @using (Html.BeginForm("Create", "HomeStorage", new { @Area = "Private" }, FormMethod.Post, new { @class = "form-horizontal text-center" }))
     {
         @Html.AntiForgeryToken()

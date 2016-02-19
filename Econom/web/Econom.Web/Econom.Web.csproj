@@ -387,6 +387,7 @@
     <Folder Include="Areas\Private\Views\User\" />
     <Folder Include="Areas\Public\Views\Images\" />
     <Folder Include="Areas\Public\Views\StorageProducts\" />
+    <Folder Include="Content\Kendo\Metro\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>

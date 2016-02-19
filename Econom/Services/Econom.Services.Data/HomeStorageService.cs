@@ -20,6 +20,20 @@
             this.users = users;
         }
 
+        public HomeStorage AddFlatmates(string ownerId, IEnumerable<string> userEmails)
+        {
+            var owner = this.users.All().FirstOrDefault(x => x.Id == ownerId);
+          this.users.All()
+                .Where(x => userEmails.Contains(x.Email))
+                .Select(x=>x)
+                
+                ;
+            owner.HomeStorage.Owners.Add()
+
+            
+           
+        }
+
         public HomeStorage Create(HomeStorage model, string userId)
         {
             model.Owners.Add(this.users.All().FirstOrDefault(x => x.Id == userId));

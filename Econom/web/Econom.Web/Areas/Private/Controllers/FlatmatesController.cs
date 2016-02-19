@@ -6,14 +6,20 @@
 
     using Econom.Services.Data.Contracts;
     using Econom.Web.Areas.Private.ViewModels;
+    using Infrastructure.BaseControllers;
+    using Infrastructure.Mapping;
+    using Kendo.Mvc.UI;
+    using Kendo.Mvc.Extensions;
 
-    public class FlatmatesController : Controller
+    public class FlatmatesController : BaseMapController
     {
         private readonly IUserService userService;
+        private readonly IHomeStorageService storages;
 
-        public FlatmatesController(IUserService userService)
+        public FlatmatesController(IUserService userService, IHomeStorageService storages)
         {
             this.userService = userService;
+            this.storages = storages;
         }
 
         public ActionResult Index()
@@ -24,15 +30,17 @@
         public ActionResult Get(ICollection<string> emails)
         {
             var users = this.userService.GetByEmails(emails)
-                .Select(x => new FlatmateViewModel()
-                {
-                    Id = x.Id,
-                    Name = x.FirstName + " " + x.LastName,
-                    ImageUrl = x.ImageUrl
-                })
+                .To<FlatmateViewModel>()
                 .ToList();
 
             return this.PartialView("_FlatmatesGridView", users);
+        }
+
+        public ActionResult Create([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]IEnumerable<FlatmateViewModel> flatmates)
+        {
+            var users = this.userService.GetByEmails(flatmates.Select(x => x.Email).ToList());
+            this.storages.
+            return Json(flatmates.ToList().ToDataSourceResult(request, ModelState));
         }
     }
 }
