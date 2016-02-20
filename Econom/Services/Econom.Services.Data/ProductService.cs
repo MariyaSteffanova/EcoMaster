@@ -31,6 +31,8 @@
             });
 
             this.products.SaveChanges();
+            var a = products;
+            
         }
 
         public IQueryable<Product> SearchByName(string name)

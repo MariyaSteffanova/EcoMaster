@@ -48,8 +48,11 @@
   <ItemGroup>
     <Compile Include="Contracts\IImageDownloaderService.cs" />
     <Compile Include="Contracts\IImageProcessorService.cs" />
+    <Compile Include="Contracts\IProductProcesorService.cs" />
+    <Compile Include="Contracts\ProductProcessorService.cs" />
     <Compile Include="ImageDownloaderService.cs" />
     <Compile Include="ImageProcessorService.cs" />
+    <Compile Include="Mappers\ProductMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +62,22 @@
     <ProjectReference Include="..\..\Common\Econom.Common\Econom.Common.csproj">
       <Project>{c8da2c49-bce9-4446-a548-5fcfa36b1296}</Project>
       <Name>Econom.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
+      <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
+      <Name>Econom.Data.TransferModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\EconomData\Econom.Data.Models\Econom.Data.Models.csproj">
+      <Project>{1c6815db-0f42-40b7-b310-57690b317bd1}</Project>
+      <Name>Econom.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Econom.Services.Data\Econom.Services.Data.csproj">
+      <Project>{e9140512-f401-4f47-a748-f83e22e60562}</Project>
+      <Name>Econom.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Econom.Services.Searchers\Econom.Services.Searchers.csproj">
+      <Project>{aff67409-693d-4de6-b42a-d628fccd013a}</Project>
+      <Name>Econom.Services.Searchers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

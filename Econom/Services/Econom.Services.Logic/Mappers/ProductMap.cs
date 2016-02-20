@@ -1,13 +1,8 @@
-﻿namespace Econom.Services.Searchers.Mappers
+﻿namespace Econom.Services.Logic.Mappers
 {
-    using Data.Models;
-    using Data.TransferModels;
+    using Econom.Data.Models;
+    using Econom.Data.TransferModels;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public static class ProductMap
     {
@@ -17,7 +12,7 @@
             {
                 Name = x.Description,
                 Barcode = x.Barcode,
-                //Category 
+             //  Category = x.CategoryGS1 ?? 
                 ImageUrl = x.ImageUrl
             };
         };

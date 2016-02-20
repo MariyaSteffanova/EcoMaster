@@ -3,17 +3,12 @@
     using System.Linq;
 
     using Contracts;
-    using Data.Contracts;
     using Data.TransferModels;
-    using Services.Logic.Contracts;
-    using ItemMasterProduct = ItemMasterData.Models.Product;
-    using ItemMasterData.Data;
     using Services.Providers.Contracts;
     using System.Collections.Generic;
     using Common.Extensions;
     using System.Collections.ObjectModel;
-    using Mappers;
-    using Data.Models;
+
     public class BarcodeSearcherService : IBarcodeSearcherService
     {
         private readonly ICollection<IProvider> providers = new Collection<IProvider>();
@@ -23,7 +18,7 @@
             this.providers.Add(itemMasterProvider);
         }
 
-        public IQueryable<Product> Search(string barcode)
+        public IQueryable<ProductBase> Search(string barcode)
         {
             // TODO: Foreach all rpoviders and get list of ProductBAse
 
@@ -31,12 +26,12 @@
 
             // TODO: Search in BG Barcode if culture is BG ??
 
-            var products = new List<Product>();
+            var products = new List<ProductBase>();
 
             this.providers
                  .ForEach(x =>
                  {
-                     products.AddRange(x.GetByBarcode(barcode).Select(ProductMap.FromBaseProduct));
+                     products.AddRange(x.GetByBarcode(barcode));
                  });
 
             return products.AsQueryable();

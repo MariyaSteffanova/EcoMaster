@@ -48,7 +48,6 @@
     <Compile Include="Contracts\IBarcodeSearcherService.cs" />
     <Compile Include="Contracts\IImageSearcherService.cs" />
     <Compile Include="ImageSearcherService.cs" />
-    <Compile Include="Mappers\ProductMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,18 +70,6 @@
     <ProjectReference Include="..\..\Data\EconomData\Econom.Data\Econom.Data.csproj">
       <Project>{88a8a35d-5d8d-4283-816c-40c3846fd949}</Project>
       <Name>Econom.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\ItemMasterData\ItemMasterData.Data\ItemMasterData.Data.csproj">
-      <Project>{c0b356c9-d79f-4e8b-93b4-0915897ea73a}</Project>
-      <Name>ItemMasterData.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\ItemMasterData\ItemMasterData.Models\ItemMasterData.Models.csproj">
-      <Project>{b78a28a2-a501-4039-8e86-e878a75b788a}</Project>
-      <Name>ItemMasterData.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Econom.Services.Logic\Econom.Services.Logic.csproj">
-      <Project>{4e9befe0-5519-4129-9b27-1a23654438e4}</Project>
-      <Name>Econom.Services.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

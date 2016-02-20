@@ -10,7 +10,7 @@
 
         [Index]
         [Required]
-        [MaxLength(50)]
+        [MaxLength(300)]
         public string Name { get; set; }
 
         [Index]

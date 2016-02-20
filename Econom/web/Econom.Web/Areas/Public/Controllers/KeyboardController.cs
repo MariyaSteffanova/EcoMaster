@@ -7,16 +7,15 @@
     using ViewModels.Products;
     using Infrastructure.BaseControllers;
     using Services.Data.Contracts;
+    using Services.Logic.Contracts;
 
     public class KeyboardController : BaseController
     {
-        private readonly IProductService productService;
-        private readonly IBarcodeSearcherService barcodeSercher;
+        private IProductProcesorService productProcessorService;
 
-        public KeyboardController(IBarcodeSearcherService barcodeSercher, IProductService productService)
+        public KeyboardController(IProductProcesorService productProcessorService)
         {
-            this.barcodeSercher = barcodeSercher;
-            this.productService = productService;
+            this.productProcessorService = productProcessorService;
         }
 
         public ActionResult Input()
@@ -26,10 +25,9 @@
 
         public ActionResult Find(string barcode)
         {
-            var result = this.barcodeSercher
-                                .Search(barcode);
-          
-
+            var result = this.productProcessorService.ProcessByBarcode(barcode);
+            
+            // TODO: Mapper
             var viewmodel = result
                                 .Select(p => new ProductBaseViewModel
                                 {
