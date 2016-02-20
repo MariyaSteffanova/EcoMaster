@@ -21,16 +21,23 @@
 
         public IQueryable<Product> ProcessByBarcode(string barcode)
         {
-            var result = this.barcodeSearcherService
-                 .Search(barcode)
-                 .Select(x => new Product()
-                 {
-                     Name = x.Description,
-                     Barcode = x.Barcode,
-                     Category = this.categoryResolver.Resolve(new string[] { x.CategoryGS1, x.CategoryName }),
-                     Image = x.Image,
-                     ImageUrl = x.ImageUrl
-                 });
+            var result = this.productDataService.GetByBarcode(barcode);
+
+            if (result.Count() > 0)
+            {
+                return result;
+            }
+
+            result = this.barcodeSearcherService
+                .Search(barcode)
+                .Select(x => new Product()
+                {
+                    Name = x.Description,
+                    Barcode = x.Barcode,
+                    Category = this.categoryResolver.Resolve(new string[] { x.CategoryGS1, x.CategoryName }),
+                    Image = x.Image,
+                    ImageUrl = x.ImageUrl
+                });
 
             this.productDataService.InsertMany(result); // TODO: Resolve category
 
