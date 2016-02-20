@@ -80,7 +80,8 @@ namespace Econom.Web.App_Start
                 .From(
                     GlobalConstants.DataServicesAssembly,
                     GlobalConstants.SearchersServicesAssembly,
-                    GlobalConstants.LogicServicesAssembly)
+                    GlobalConstants.LogicServicesAssembly, 
+                    GlobalConstants.ProvidersServicesAssembly)
                .SelectAllClasses()
                .BindDefaultInterface());
         }

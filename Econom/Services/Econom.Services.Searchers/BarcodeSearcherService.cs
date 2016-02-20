@@ -23,6 +23,10 @@
 
         public IQueryable<ProductBase> Search(string barcode)
         {
+            // TODO: Foreach all rpoviders and get list of ProductBAse
+
+            // TODO: Save in MyDb - without EcoInfo - the claculator need location from HomeStorage for this step
+
             // TODO: Search in BG Barcode if culture is BG ??
             var products = this.itemMasterProducts.All()
                .Where(x => x.Barcode == barcode)

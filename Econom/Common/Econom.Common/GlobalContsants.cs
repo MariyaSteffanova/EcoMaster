@@ -9,6 +9,8 @@
 
         public const string LogicServicesAssembly = "Econom.Services.Logic";
 
+        public const string ProvidersServicesAssembly = "Econom.Services.Providers";
+
         // Validation
         public const int FirstNameMaxLength = 25;
 
@@ -16,7 +18,7 @@
 
         //
         public const int ImageLowQuality = 60;
-       
+
         public const string DefaultProductImageSource = "~/Content/Images/background.jpg";
 
         // Urls
