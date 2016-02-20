@@ -8,7 +8,7 @@
 
     using Econom.Data.Models;
     using Econom.Web.Infrastructure.Mapping;
-
+    using System.ComponentModel;
     public class HomeStorageInputModel : IMapTo<HomeStorage>, IMapFrom<HomeStorage>, IHaveCustomMappings
     {
         [Required]

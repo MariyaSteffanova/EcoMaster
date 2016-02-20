@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-   
+
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -32,9 +32,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "Public" }, null)</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = string.Empty }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-   
+
     @Scripts.Render("~/bundles/main")
     @RenderSection("scripts", required: false)
 </body>

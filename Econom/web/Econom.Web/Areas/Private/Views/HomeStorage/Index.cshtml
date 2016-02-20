@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@Styles.Render("~/Content/homestorage")
 <h2>Index</h2>
 
+<a href="@Url.Action("PostCreate", "HomeStorage")" class="btn btn-lg kendo-style-bg">
+    <span class="fa fa-long-arrow-right"></span>
+</a>

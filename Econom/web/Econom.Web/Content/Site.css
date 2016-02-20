@@ -84,11 +84,15 @@
 }
 
 .kendo-style {
-    color: #7ea700;
+    color: rgba(126,167,0,1);
 }
 
 .kendo-style-bg {
-    background-color: #7ea700;
+    background-color: rgba(126,167,0,0.7);
+}
+
+.ignore-overlay {
+    position: relative;
 }
 
 .btn-upload-hidden {

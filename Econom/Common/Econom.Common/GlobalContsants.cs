@@ -24,5 +24,7 @@
         public const string PrivateAreaPrefix = "Private";
 
 
+        public const string PendingHomestorageCreationProductId = "PendingHomestorageCreationProductId";
+
     }
 }

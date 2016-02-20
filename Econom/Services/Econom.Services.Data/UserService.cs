@@ -10,6 +10,7 @@
     using Econom.Data.Contracts;
     using Econom.Data;
     using System.Collections.Generic;
+
     public class UserService : IUserService
     {
         private readonly IRepository<IEconomDbContext, User> users;
@@ -17,6 +18,14 @@
         public UserService(IRepository<IEconomDbContext, User> users)
         {
             this.users = users;
+        }
+
+        public bool IsOwner(string userId)
+        {
+            return this.users.All()
+                            .Where(x => x.Id == userId)
+                            .Select(x => x.HomeStorage == null ? false : true)
+                            .FirstOrDefault();
         }
 
         public IQueryable<User> GetAll()
@@ -27,8 +36,8 @@
         public IQueryable<User> GetByEmails(ICollection<string> emails)
         {
             return this.users.All()
-                .Where(x => emails.Contains(x.Email))
-                .Select(x => x);
+                            .Where(x => emails.Contains(x.Email))
+                            .Select(x => x);
         }
 
         public User GetById(string id)

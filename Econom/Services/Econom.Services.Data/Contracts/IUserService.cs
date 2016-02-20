@@ -7,6 +7,8 @@
 
     public interface IUserService
     {
+        bool IsOwner(string userId);
+
         User GetById(string id);
 
         User GetByUserName(string username);

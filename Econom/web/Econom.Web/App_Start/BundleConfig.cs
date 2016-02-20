@@ -68,6 +68,10 @@
             bundles.Add(new StyleBundle("~/Content/found").Include(
                 "~/Content/pages/found.css"));
 
+            bundles.Add(new StyleBundle("~/Content/homestorage").Include(
+                  "~/Content/font-awesome.min.css",
+                  "~/Content/pages/homestorage.css"));
+
             bundles.Add(new StyleBundle("~/Content/kendo-css").Include(
                 "~/Content/kendo/kendo.common.min.css",
                 "~/Content/kendo/kendo.metro.min.css"));

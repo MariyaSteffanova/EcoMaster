@@ -10,6 +10,7 @@
     using Infrastructure.Mapping;
     using Kendo.Mvc.UI;
     using Kendo.Mvc.Extensions;
+    using Microsoft.AspNet.Identity;
 
     public class FlatmatesController : BaseMapController
     {
@@ -38,8 +39,12 @@
 
         public ActionResult Create([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]IEnumerable<FlatmateViewModel> flatmates)
         {
-            var users = this.userService.GetByEmails(flatmates.Select(x => x.Email).ToList());
-            this.storages.
+            var emails = flatmates
+                .Select(x => x.Email)
+                .ToList();
+
+            this.storages.AddFlatmates(this.User.Identity.GetUserId(), emails);
+
             return Json(flatmates.ToList().ToDataSourceResult(request, ModelState));
         }
     }
