@@ -236,6 +236,7 @@
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Areas\Private\ViewModels\HomeStorageViewModel.cs" />
     <Compile Include="Areas\Private\ViewModels\FlatmateViewModel.cs" />
+    <Compile Include="Areas\Private\ViewModels\StorageProductViewModel.cs" />
     <Compile Include="Areas\Public\Controllers\ImagesController.cs" />
     <Compile Include="Areas\Public\Controllers\IntroController.cs" />
     <Compile Include="Areas\Public\Controllers\KeyboardController.cs" />

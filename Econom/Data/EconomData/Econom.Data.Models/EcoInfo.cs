@@ -8,5 +8,9 @@
         [Key]
         public int ID { get; set; }
 
+        public decimal Percentage { get; set; }
+
+        public string Notes { get; set; }
+
     }
 }

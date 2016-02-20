@@ -46,7 +46,6 @@
     .AutoHideAfter(0)
     .Templates(t =>
     {
-        t.Add().Type("error").ClientTemplateID("errorTemplate");
         t.Add().Type("upload-success").ClientTemplateID("successTemplate");
     })
     )
@@ -58,12 +57,14 @@
     </div>
 </script>
 <script>
-    var notification = $("#notification").data("kendoNotification");
+    $(document).ready(function () {
+        var notification = $("#notification").data("kendoNotification");
 
-    function notify(e) {
-        console.log(e);
-        notification.show({
-            message: "Upload Successful"
-        }, "upload-success");
-    };
+        function notify(e) {
+            console.log(e);
+            notification.show({
+                message: "Upload Successful"
+            }, "upload-success");
+        };
+    });
 </script>
