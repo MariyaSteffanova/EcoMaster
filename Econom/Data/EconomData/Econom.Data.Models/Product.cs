@@ -18,6 +18,8 @@
         [MaxLength(50)]
         public string Barcode { get; set; }
 
+        public string ImageUrl { get; set; } // TODO: Decide how to keep the images
+
         public byte[] Image { get; set; }
 
         public int CategoryID { get; set; }

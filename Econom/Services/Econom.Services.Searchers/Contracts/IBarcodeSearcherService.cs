@@ -3,9 +3,10 @@
     using System.Linq;
 
     using Econom.Data.TransferModels;
+    using Data.Models;
 
     public interface IBarcodeSearcherService
     {
-        IQueryable<ProductBase> Search(string barcode);
+        IQueryable<Product> Search(string barcode);
     }
 }

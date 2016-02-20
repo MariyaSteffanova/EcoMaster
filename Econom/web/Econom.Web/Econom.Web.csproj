@@ -402,13 +402,13 @@
       <Project>{c8da2c49-bce9-4446-a548-5fcfa36b1296}</Project>
       <Name>Econom.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Data\BarcodeData\BarcodeData.Data\BarcodeData.Data.csproj">
+      <Project>{3a2f7268-d6fa-4f9e-b90c-0f99651bab5b}</Project>
+      <Name>BarcodeData.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Common\Data.Contracts\Data.Contracts.csproj">
       <Project>{e275f6a7-50c9-4f43-aea4-a874b59680eb}</Project>
       <Name>Data.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
-      <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
-      <Name>Econom.Data.TransferModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\EconomData\Econom.Data.Models\Econom.Data.Models.csproj">
       <Project>{1c6815db-0f42-40b7-b310-57690b317bd1}</Project>

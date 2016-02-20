@@ -4,7 +4,7 @@
 
     using BarcodeData.Models;
 
-    public interface IBarcodeService
+    public interface IBarcodeService // TODO: old, remove
     {
         IQueryable<Product> GetByBarcode(string barcode);
     }
