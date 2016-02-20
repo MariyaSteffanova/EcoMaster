@@ -23,6 +23,19 @@
             return this.products.All().FirstOrDefault(x => x.ID == id);
         }
 
+
+        public IQueryable<Product> GetByBarcode(string barcode)
+        {
+            return this.products.All()
+                .Where(x => x.Barcode == barcode);
+        }
+
+        public IQueryable<Product> GetByName(string name)
+        {
+            return this.products.All()
+                .Where(x => x.Name == name);
+        }
+
         public void InsertMany(IEnumerable<Product> products)
         {
             products.ForEach(x =>
@@ -32,14 +45,7 @@
 
             this.products.SaveChanges();
             var a = products;
-            
-        }
 
-        public IQueryable<Product> SearchByName(string name)
-        {
-            return this.products.All()
-                .Where(x => x.Name == name)
-                .Select(x => x);
         }
     }
 }

@@ -8,9 +8,10 @@
     {
         Product GetById(int id);
 
-        void InsertMany(IEnumerable<Product> products);
+        IQueryable<Product> GetByBarcode(string barcode);
 
-        IQueryable<Product> SearchByName(string name);
-        
+        IQueryable<Product> GetByName(string name);
+
+        void InsertMany(IEnumerable<Product> products);
     }
 }
