@@ -33,8 +33,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "Public" }, null)</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = string.Empty }, null)</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = "Public" }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "Public" }, null)</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Home Storage", "Index", "HomeStorage", new { area = "Private" }, null)</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

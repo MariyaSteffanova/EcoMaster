@@ -26,6 +26,44 @@
     </div>
     <div class="col-md-8">
         <h1 class="product-description">@Model.Description</h1>
-        @Html.ActionLink("Add to fridge", "AddProduct", "HomeStorage", new { Area= "Private", id = Model.Id}, new { @class="k-button pull-right"})
+        @*@Ajax.ActionLink("Add to fridge", "AddProduct", "StorageProducts", new { Area = "Private", id = Model.Id }, new { @class = "k-button pull-right" })*@
+        @Ajax.ActionLink("Add to fridge", "AddProduct", "StorageProducts",
+                 new { area = "Private", id = Model.Id },
+                 new AjaxOptions
+                 {
+                     InsertionMode = InsertionMode.InsertBefore,
+                     UpdateTargetId = "found-products-list",
+                     OnSuccess = "notify"
+                 })
     </div>
+    <div id="target">
+
+    </div>
+    @(Html.Kendo().Notification()
+    .Name("notification")
+    .Position(p => p.Pinned(true).Top(30).Right(30))
+    .Stacking(NotificationStackingSettings.Down)
+    .AutoHideAfter(0)
+    .Templates(t =>
+    {
+        t.Add().Type("error").ClientTemplateID("errorTemplate");
+        t.Add().Type("upload-success").ClientTemplateID("successTemplate");
+    })
+    )
 </div>
+<script id="successTemplate" type="text/x-kendo-template">
+    <div class="upload-success">
+        <img src="../../../content/web/notification/success-icon.png" />
+        <h3>#= message #</h3>
+    </div>
+</script>
+<script>
+    var notification = $("#notification").data("kendoNotification");
+
+    function notify(e) {
+        console.log(e);
+        notification.show({
+            message: "Upload Successful"
+        }, "upload-success");
+    };
+</script>
