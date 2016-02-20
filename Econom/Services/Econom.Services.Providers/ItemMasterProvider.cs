@@ -8,7 +8,7 @@
     using ItemMasterProduct = ItemMasterData.Models.Product;
     using System.Linq;
 
-    class ItemMasterProvider : IProvider
+    public class ItemMasterProvider : IItemMasterProvider
     {
         private readonly IRepository<IItemMasterDbContext, ItemMasterProduct> itemMasterDb;
 

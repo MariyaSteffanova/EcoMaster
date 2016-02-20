@@ -8,15 +8,18 @@
     using Services.Logic.Contracts;
     using ItemMasterProduct = ItemMasterData.Models.Product;
     using ItemMasterData.Data;
+    using Services.Providers.Contracts;
+
     public class BarcodeSearcherService : IBarcodeSearcherService
     {
-        private readonly IRepository<IItemMasterDbContext, ItemMasterProduct> itemMasterProducts;
+        // private readonly IRepository<IItemMasterDbContext, ItemMasterProduct> itemMasterProducts;
+        private readonly IItemMasterProvider itemMasterProvider;
         private readonly IImageDownloaderService imageDownloader;
         private readonly IImageProcessorService imageProcessor;
 
-        public BarcodeSearcherService(IRepository<IItemMasterDbContext, ItemMasterProduct> itemMasterProducts, IImageDownloaderService imageDownloader, IImageProcessorService imageProcessor)
+        public BarcodeSearcherService(IItemMasterProvider itemMasterProvider, IImageDownloaderService imageDownloader, IImageProcessorService imageProcessor)
         {
-            this.itemMasterProducts = itemMasterProducts;
+            this.itemMasterProvider = itemMasterProvider;
             this.imageDownloader = imageDownloader;
             this.imageProcessor = imageProcessor; // TODO: Remove?
         }
@@ -28,19 +31,9 @@
             // TODO: Save in MyDb - without EcoInfo - the claculator need location from HomeStorage for this step
 
             // TODO: Search in BG Barcode if culture is BG ??
-            var products = this.itemMasterProducts.All()
-               .Where(x => x.Barcode == barcode)
-               .Select(x => new ProductBase
-               {
-                   Id = x.Id,
-                   Barcode = x.Barcode,
-                   Description = x.Description,
-                   ImageUrl = x.Images
-                            .Where(img => img.Url != null)
-                            .Select(img => img.Url)
-                            .FirstOrDefault()
-               })
-               .ToList();
+
+            var products = this.itemMasterProvider
+                .GetByBarcode(barcode);
 
             return products.AsQueryable();
 
