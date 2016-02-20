@@ -30,9 +30,14 @@
 
         public ActionResult Get(ICollection<string> emails)
         {
+            if (emails == null)
+            {
+                return this.PartialView("_FlatmatesGridView", new List<FlatmateViewModel>());
+            }
+
             var users = this.userService.GetByEmails(emails)
-                .To<FlatmateViewModel>()
-                .ToList();
+                     .To<FlatmateViewModel>()
+                     .ToList();
 
             return this.PartialView("_FlatmatesGridView", users);
         }
