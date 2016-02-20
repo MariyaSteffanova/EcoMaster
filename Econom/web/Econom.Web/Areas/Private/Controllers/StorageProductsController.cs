@@ -1,8 +1,10 @@
 ﻿namespace Econom.Web.Areas.Private.Controllers
 {
+    using Common;
     using Econom.Services.Data.Contracts;
     using Econom.Web.Infrastructure.Filters;
     using Microsoft.AspNet.Identity;
+    using System;
     using System.Web.Mvc;
 
     public class StorageProductsController : Controller
@@ -26,7 +28,9 @@
             this.storageProductsService
                  .Add(id, this.User.Identity.GetUserId());
 
-            return this.RedirectToAction("Input", "Keyboard");
+            var action = Convert.ToString(this.Session[GlobalConstants.ClientSearchMode]);
+
+            return this.RedirectToAction("Input", action, new { area = "Public" });
         }
 
     }

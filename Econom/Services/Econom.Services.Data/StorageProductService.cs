@@ -13,27 +13,38 @@ namespace Econom.Services.Data
     public class StorageProductsService : IStorageProductsService
     {
         private readonly IRepository<IEconomDbContext, HomeStorage> storages;
+        private readonly IRepository<IEconomDbContext, StorageProduct> products;
         private readonly IUserService users;
 
-        public StorageProductsService(IRepository<IEconomDbContext, HomeStorage> products, IUserService users)
+        public StorageProductsService(IRepository<IEconomDbContext, HomeStorage> storages, IRepository<IEconomDbContext, StorageProduct> products, IUserService users)
         {
-            this.storages = products;
+            this.storages = storages;
+            this.products = products;
             this.users = users;
         }
 
         public void Add(int productId, string userId)
         {
-            this.storages.All()
-                .FirstOrDefault(x => x.Owners
-                        .Any(o => o.Id == userId))
-                .Products
-                .Add(new StorageProduct()
-                {
-                    ProductID = productId,
-                    Quantity = 1
-                });
+            var homeStorageId = (int)this.users.GetAll().FirstOrDefault(x => x.Id == userId).HomeStorageID;
 
-            this.storages.SaveChanges();
+            this.products.Add(new StorageProduct()
+            {
+                ProductID = productId,
+                HomeStorageID = homeStorageId
+            });
+
+            this.products.SaveChanges();
+            //this.storages.All()
+            //    .FirstOrDefault(x => x.Owners
+            //            .Any(o => o.Id == userId))
+            //    .Products
+            //    .Add(new StorageProduct()
+            //    {
+            //        ProductID = productId,
+            //        Quantity = 1
+            //    });
+
+            //this.storages.SaveChanges();
         }
     }
 }

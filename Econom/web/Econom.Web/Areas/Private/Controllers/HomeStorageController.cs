@@ -29,7 +29,7 @@
             return this.View();
         }
 
-     
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -65,7 +65,7 @@
             var pendingProductID = this.Session[GlobalConstants.PendingHomestorageCreationProductId];
             if (pendingProductID != null)
             {
-                return this.RedirectToAction("AddProduct", new { id = Convert.ToInt32(pendingProductID) });
+                return this.RedirectToAction("AddProduct", "StorageProducts", new { id = Convert.ToInt32(pendingProductID) });
             }
 
             return this.RedirectToAction("Index");

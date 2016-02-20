@@ -8,7 +8,7 @@
     using Infrastructure.BaseControllers;
     using Services.Data.Contracts;
     using Services.Logic.Contracts;
-
+    using Infrastructure.Filters;
     public class KeyboardController : BaseController
     {
         private IProductProcessorService productProcessorService;
@@ -23,10 +23,11 @@
             return this.View(string.Empty);
         }
 
+        [SearchModeTracker]
         public ActionResult Find(string barcode)
         {
             var result = this.productProcessorService.ProcessByBarcode(barcode);
-            
+
             // TODO: Mapper
             var viewmodel = result
                                 .Select(p => new ProductBaseViewModel
