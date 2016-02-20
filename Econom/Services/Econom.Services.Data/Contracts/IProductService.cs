@@ -1,12 +1,16 @@
 ﻿namespace Econom.Services.Data.Contracts
 {
     using Econom.Data.Models;
+    using System.Collections.Generic;
     using System.Linq;
 
     public interface IProductService
     {
-        IQueryable<Product> SearchByBarcode(string barcode);
+        Product GetById(int id);
+
+        void InsertMany(IEnumerable<Product> products);
 
         IQueryable<Product> SearchByName(string name);
+        
     }
 }

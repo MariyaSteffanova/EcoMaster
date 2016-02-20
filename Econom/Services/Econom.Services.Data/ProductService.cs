@@ -5,23 +5,32 @@
     using Econom.Data.Contracts;
     using Econom.Data.Models;
     using System.Linq;
+    using System;
+    using System.Collections.Generic;
+    using Common.Extensions;
 
     public class ProductService : IProductService
     {
         private readonly IRepository<IEconomDbContext, Product> products;
-        private readonly IBarcodeService barcodeService;
 
-        public ProductService(IRepository<IEconomDbContext, Product> products, IBarcodeService barcodeService)
+        public ProductService(IRepository<IEconomDbContext, Product> products)
         {
             this.products = products;
-            this.barcodeService = barcodeService;
         }
 
-        public IQueryable<Product> SearchByBarcode(string barcode)
+        public Product GetById(int id)
         {
-            return this.products.All()
-                .Where(x => x.Barcode == barcode)
-                .Select(x => x);
+            return this.products.All().FirstOrDefault(x => x.ID == id);
+        }
+
+        public void InsertMany(IEnumerable<Product> products)
+        {
+            products.ForEach(x =>
+            {
+                this.products.Add(x);
+            });
+
+            this.products.SaveChanges();
         }
 
         public IQueryable<Product> SearchByName(string name)
