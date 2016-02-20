@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICategoryResolverService.cs" />
     <Compile Include="Contracts\IImageDownloaderService.cs" />
     <Compile Include="Contracts\IImageProcessorService.cs" />
     <Compile Include="Contracts\IProductProcesorService.cs" />
-    <Compile Include="Contracts\ProductProcessorService.cs" />
+    <Compile Include="CategoryResolverService.cs" />
+    <Compile Include="ProductProcessorService.cs" />
     <Compile Include="ImageDownloaderService.cs" />
     <Compile Include="ImageProcessorService.cs" />
     <Compile Include="Mappers\ProductMap.cs" />

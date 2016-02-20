@@ -3,7 +3,7 @@
     using Econom.Data.Models;
     using System.Linq;
 
-    public interface IProductProcesorService
+    public interface IProductProcessorService
     {
         IQueryable<Product> ProcessByBarcode(string barcode);
     }

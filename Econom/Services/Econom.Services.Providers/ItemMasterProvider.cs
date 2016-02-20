@@ -20,7 +20,8 @@
         public IEnumerable<ProductBase> GetByBarcode(string barcode)
         {
             var products = this.itemMasterDb.All()
-              .Where(x => x.Barcode == barcode)
+              .Where(x => x.Barcode == barcode
+              && x.Description != null)
               .Select(x => new ProductBase
               {
                   Id = x.Id,
@@ -29,7 +30,8 @@
                   ImageUrl = x.Images
                            .Where(img => img.Url != null)
                            .Select(img => img.Url)
-                           .FirstOrDefault()
+                           .FirstOrDefault(),
+                  CategoryName = x.Category.Name
               })
               .ToList();
 

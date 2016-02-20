@@ -22,12 +22,12 @@
 
         public byte[] Image { get; set; }
 
-        public int CategoryID { get; set; }
+        public int? CategoryID { get; set; }
 
         [ForeignKey("CategoryID")]
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
-        public int EcoInfoID { get; set; }
+        public int? EcoInfoID { get; set; }
 
         [ForeignKey("EcoInfoID")]
         public virtual EcoInfo EcoInfo { get; set; }

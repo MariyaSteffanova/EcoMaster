@@ -1,7 +1,6 @@
 ﻿namespace Econom.Services.Data
 {
     using Econom.Services.Data.Contracts;
-    using System;
     using System.Linq;
     using Econom.Data.Models;
     using Econom.Data;
@@ -26,7 +25,9 @@
 
         public IQueryable<Category> GetByName(string name)
         {
-            throw new NotImplementedException();
+            return this.categories
+                 .All()
+                 .Where(x => x.Name.Contains(name));
         }
     }
 }

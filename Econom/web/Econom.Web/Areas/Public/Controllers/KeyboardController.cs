@@ -11,9 +11,9 @@
 
     public class KeyboardController : BaseController
     {
-        private IProductProcesorService productProcessorService;
+        private IProductProcessorService productProcessorService;
 
-        public KeyboardController(IProductProcesorService productProcessorService)
+        public KeyboardController(IProductProcessorService productProcessorService)
         {
             this.productProcessorService = productProcessorService;
         }
