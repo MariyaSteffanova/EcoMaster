@@ -9,19 +9,18 @@
     using ItemMasterProduct = ItemMasterData.Models.Product;
     using ItemMasterData.Data;
     using Services.Providers.Contracts;
+    using System.Collections.Generic;
+    using Common.Extensions;
+    using System.Collections.ObjectModel;
 
     public class BarcodeSearcherService : IBarcodeSearcherService
     {
-        // private readonly IRepository<IItemMasterDbContext, ItemMasterProduct> itemMasterProducts;
-        private readonly IItemMasterProvider itemMasterProvider;
-        private readonly IImageDownloaderService imageDownloader;
-        private readonly IImageProcessorService imageProcessor;
+        private readonly ICollection<IProvider> providers = new Collection<IProvider>();
 
-        public BarcodeSearcherService(IItemMasterProvider itemMasterProvider, IImageDownloaderService imageDownloader, IImageProcessorService imageProcessor)
+        public BarcodeSearcherService(IItemMasterProvider itemMasterProvider)
         {
-            this.itemMasterProvider = itemMasterProvider;
-            this.imageDownloader = imageDownloader;
-            this.imageProcessor = imageProcessor; // TODO: Remove?
+            this.providers.Add(itemMasterProvider);
+
         }
 
         public IQueryable<ProductBase> Search(string barcode)
@@ -32,8 +31,13 @@
 
             // TODO: Search in BG Barcode if culture is BG ??
 
-            var products = this.itemMasterProvider
-                .GetByBarcode(barcode);
+            var products = new List<ProductBase>();
+
+            this.providers
+                 .ForEach(x =>
+                 {
+                     products.AddRange(x.GetByBarcode(barcode));
+                 });
 
             return products.AsQueryable();
 

@@ -51,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Econom.Common\Econom.Common.csproj">
+      <Project>{c8da2c49-bce9-4446-a548-5fcfa36b1296}</Project>
+      <Name>Econom.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Common\Data.Contracts\Data.Contracts.csproj">
       <Project>{e275f6a7-50c9-4f43-aea4-a874b59680eb}</Project>
       <Name>Data.Contracts</Name>
