@@ -29,14 +29,7 @@
             return this.View();
         }
 
-        [HomeStorageOwnerWrapper]
-        public ActionResult AddProduct(int id) // TODO: Move in another Controller
-        {
-            var username = this.User.Identity.Name;
-
-            return this.View("Index");
-        }
-
+     
         [HttpGet]
         public ActionResult Create()
         {

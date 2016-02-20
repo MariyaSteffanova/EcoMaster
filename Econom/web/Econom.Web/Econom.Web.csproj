@@ -230,6 +230,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Private\Controllers\FlatmatesController.cs" />
     <Compile Include="Areas\Private\Controllers\HomeStorageController.cs" />
+    <Compile Include="Areas\Private\Controllers\StorageProductsController.cs" />
     <Compile Include="Areas\Private\Controllers\UserController.cs" />
     <Compile Include="Areas\Private\InputModels\HomeStorageInputModel.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="Infrastructure\BaseControllers\BaseMapController.cs" />
     <Compile Include="Infrastructure\Filters\HomeStorageOwnerWrapperAttribute.cs" />
     <Compile Include="Infrastructure\Filters\HomeStorageOwnerAttribute.cs" />
+    <Compile Include="Infrastructure\Filters\SearchModeTrackerAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Areas\Public\ViewModels\AccountViewModels.cs">
@@ -386,6 +388,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Private\Views\Flatmates\" />
+    <Folder Include="Areas\Private\Views\StorageProducts\" />
     <Folder Include="Areas\Private\Views\User\" />
     <Folder Include="Areas\Public\Views\Images\" />
     <Folder Include="Areas\Public\Views\StorageProducts\" />

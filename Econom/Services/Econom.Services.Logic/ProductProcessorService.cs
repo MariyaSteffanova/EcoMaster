@@ -19,6 +19,7 @@
             this.categoryResolver = categoryResolver;
         }
 
+        // TODO: Chain of responsibility + depending on user location
         public IQueryable<Product> ProcessByBarcode(string barcode)
         {
             var result = this.productDataService.GetByBarcode(barcode);
