@@ -15,6 +15,11 @@
         public int ProductID { get; set; }
 
         [ForeignKey("ProductID")]
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
+
+        public int HomeStorageID { get; set; }
+
+        [ForeignKey("HomeStorageID")]
+        public virtual HomeStorage HomeStorage { get; set; }
     }
 }
