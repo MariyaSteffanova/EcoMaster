@@ -16,7 +16,8 @@ namespace Econom.Web.App_Start
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
-
+    using Ninject.Web.Mvc.FilterBindingSyntax;
+    using Infrastructure.Filters;
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -71,6 +72,9 @@ namespace Econom.Web.App_Start
 
             kernel.Bind<IEconomDbContext>().To<EconomDbContext>().InRequestScope();
             kernel.Bind<IItemMasterDbContext>().To<ItemMasterDbContext>().InRequestScope();
+
+            kernel.BindFilter<HomeStorageOwnerAttribute>(System.Web.Mvc.FilterScope.Action, 0)
+                .WhenActionMethodHas<HomeStorageOwnerWrapperAttribute>();
 
             kernel.Bind(k => k
                 .From(
