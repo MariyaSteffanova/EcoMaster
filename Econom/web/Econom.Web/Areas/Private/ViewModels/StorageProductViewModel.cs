@@ -1,14 +1,9 @@
-﻿using Econom.Data.Models;
-using Econom.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-
-namespace Econom.Web.Areas.Private.ViewModels
+﻿namespace Econom.Web.Areas.Private.ViewModels
 {
+    using Econom.Data.Models;
+    using Econom.Web.Infrastructure.Mapping;
+    using AutoMapper;
+
     // TODO: EcoInfo
     public class StorageProductViewModel : IMapFrom<StorageProduct>, IHaveCustomMappings
     {
