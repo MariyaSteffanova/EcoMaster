@@ -65,9 +65,9 @@
       <Project>{c8da2c49-bce9-4446-a548-5fcfa36b1296}</Project>
       <Name>Econom.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
+    <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Services.TransferModels.csproj">
       <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
-      <Name>Econom.Data.TransferModels</Name>
+      <Name>Econom.Services.TransferModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\EconomData\Econom.Data.Models\Econom.Data.Models.csproj">
       <Project>{1c6815db-0f42-40b7-b310-57690b317bd1}</Project>

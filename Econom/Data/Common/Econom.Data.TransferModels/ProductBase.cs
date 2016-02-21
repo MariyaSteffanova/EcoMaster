@@ -1,4 +1,4 @@
-﻿namespace Econom.Data.TransferModels
+﻿namespace Econom.Services.TransferModels
 {
     public class ProductBase
     {

@@ -1,8 +1,8 @@
 ﻿namespace Econom.Services.Logic.Mappers
 {
     using Econom.Data.Models;
-    using Econom.Data.TransferModels;
     using System;
+    using TransferModels;
 
     public static class ProductMap
     {

@@ -1,12 +1,12 @@
 ﻿namespace Econom.Services.Providers
 {
     using System.Collections.Generic;
-    using Econom.Data.TransferModels;
     using Econom.Services.Providers.Contracts;
     using Econom.Data.Contracts;
     using ItemMasterData.Data;
     using ItemMasterProduct = ItemMasterData.Models.Product;
     using System.Linq;
+    using TransferModels;
 
     public class ItemMasterProvider : IItemMasterProvider
     {

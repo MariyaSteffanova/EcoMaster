@@ -33,6 +33,13 @@ namespace Econom.Services.Data
                 .SelectMany(x => x.Products.Where(p => !p.IsDeleted));
         }
 
+        public IQueryable<StorageProduct> ByIds(IEnumerable<int> ids)
+        {
+            return this.products
+                        .All()
+                        .Where(x => ids.Contains(x.ID));
+        }
+
         public void Add(int productId, string userId)
         {
             var homeStorageId = (int)this.users.GetAll().FirstOrDefault(x => x.Id == userId).HomeStorageID;

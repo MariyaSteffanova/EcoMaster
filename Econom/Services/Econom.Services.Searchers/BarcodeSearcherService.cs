@@ -3,12 +3,11 @@
     using System.Linq;
 
     using Contracts;
-    using Data.TransferModels;
     using Services.Providers.Contracts;
     using System.Collections.Generic;
     using Common.Extensions;
     using System.Collections.ObjectModel;
-
+    using TransferModels;
     public class BarcodeSearcherService : IBarcodeSearcherService
     {
         private readonly ICollection<IProductProvider> providers = new Collection<IProductProvider>();

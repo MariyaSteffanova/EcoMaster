@@ -41,19 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IItemMasterProvider.cs" />
-    <Compile Include="Contracts\IProvider.cs" />
-    <Compile Include="ItemMasterProvider.cs" />
+    <Compile Include="Contracts\IItemMasterProductProvider.cs" />
+    <Compile Include="Contracts\IProductProvider.cs" />
+    <Compile Include="Contracts\IRecipesProvider.cs" />
+    <Compile Include="ItemMasterProductProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipesProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Common\Data.Contracts\Data.Contracts.csproj">
       <Project>{e275f6a7-50c9-4f43-aea4-a874b59680eb}</Project>
       <Name>Data.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Data.TransferModels.csproj">
+    <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Services.TransferModels.csproj">
       <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
-      <Name>Econom.Data.TransferModels</Name>
+      <Name>Econom.Services.TransferModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\ItemMasterData\ItemMasterData.Data\ItemMasterData.Data.csproj">
       <Project>{c0b356c9-d79f-4e8b-93b4-0915897ea73a}</Project>

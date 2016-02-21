@@ -1,8 +1,7 @@
 ﻿namespace Econom.Services.Searchers.Contracts
 {
     using System.Linq;
-
-    using Econom.Data.TransferModels;
+    using TransferModels;
 
     public interface IBarcodeSearcherService
     {
