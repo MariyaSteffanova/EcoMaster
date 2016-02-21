@@ -11,6 +11,7 @@
     using Microsoft.AspNet.Identity;
     using Common;
     using System;
+
     [Authorize]
     public class HomeStorageController : BaseMapController
     {

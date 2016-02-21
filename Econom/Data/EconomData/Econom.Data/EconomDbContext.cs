@@ -16,9 +16,21 @@
         {
         }
 
-        public virtual IDbSet<Category> Categories { get; set; }
+        public IDbSet<Category> Categories { get; set; }
 
-        public virtual IDbSet<Product> Products { get; set; }
+        public IDbSet<Product> Products { get; set; }
+
+        public IDbSet<HomeStorage> HomeStorages { get; set; }
+
+        public IDbSet<StorageProduct> StorageProducts { get; set; }
+
+        public IDbSet<EcoInfo> EcoInfos { get; set; }
+
+        public IDbSet<Location> Locations { get; set; }
+
+        public IDbSet<Notification> Notification { get; set; }
+
+        public IDbSet<Suggestion> Suggestions { get; set; }
 
         public static EconomDbContext Create()
         {

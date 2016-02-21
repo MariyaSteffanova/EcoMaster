@@ -1,0 +1,42 @@
+﻿@using Kendo.Mvc;
+@using Econom.Web.Areas.Private.ViewModels
+@model ICollection<StorageProductViewModel>
+
+@Styles.Render("~/Content/kendo-css")
+@Scripts.Render("~/bundles/kendo")
+
+@(Html.Kendo().Grid(Model)
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.Quantity);
+          columns.Bound(c => c.CreatedOn).Format("{0:M/dd/yyyy}");
+
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Navigatable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable(f => f.Mode(GridFilterMode.Menu))
+
+      .DataSource(dataSource => dataSource
+          .Ajax()
+
+          .PageSize(7)
+          .Model(model =>
+          {
+              model.Id(p => p.ID);
+              model.Field(x => x.CreatedOn).Editable(false);
+              model.Field(x => x.Name).Editable(false);
+          })
+          .Read(read => read.Action("Get", "StorageProductsGrid"))
+          .Update(update => update.Action("Update", "StorageProductsGrid"))
+          .Destroy(destroy => destroy.Action("Destroy", "StorageProductsGrid"))
+      )
+)

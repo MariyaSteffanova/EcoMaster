@@ -3,17 +3,25 @@
     using Econom.Data.Models;
     using Econom.Web.Infrastructure.Mapping;
     using AutoMapper;
-
-    // TODO: EcoInfo
+    using System;
+    using System.ComponentModel.DataAnnotations;    // TODO: Image
     public class StorageProductViewModel : IMapFrom<StorageProduct>, IHaveCustomMappings
     {
+        [Editable(false)]
+        public int ID { get; set; }
+
+        [Editable(false)]
+        public int ProductID { get; set; }
+
         public string Name { get; set; }
 
         public double Quantity { get; set; }
 
         public decimal Percentage { get; set; }
 
-        public decimal EcoNotes { get; set; }
+        public string EcoNotes { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
