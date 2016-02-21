@@ -72,6 +72,9 @@
                   "~/Content/font-awesome.min.css",
                   "~/Content/pages/homestorage.css"));
 
+            bundles.Add(new StyleBundle("~/Content/kitchen-products-list").Include(
+                "~/Content/pages/kitchen-products-list.css"));
+
             bundles.Add(new StyleBundle("~/Content/kendo-css").Include(
                 "~/Content/kendo/kendo.common.min.css",
                 "~/Content/kendo/kendo.metro.min.css"

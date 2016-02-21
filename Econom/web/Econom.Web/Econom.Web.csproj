@@ -230,6 +230,7 @@
     </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Private\Controllers\FlatmatesController.cs" />
+    <Compile Include="Areas\Private\Controllers\KitchenController.cs" />
     <Compile Include="Areas\Private\Controllers\StorageProductsGridController.cs" />
     <Compile Include="Areas\Private\Controllers\HomeStorageController.cs" />
     <Compile Include="Areas\Private\Controllers\StorageProductsController.cs" />
@@ -285,6 +286,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\background.jpg" />
     <Content Include="Content\Images\barcode.svg.png" />
+    <Content Include="Content\Images\food-icon.png" />
     <Content Include="Content\Images\pattren-bg.png" />
     <Content Include="Content\Images\slideshow-01.jpg" />
     <Content Include="Content\Kendo\2016.1.112\Black\editor.png" />
@@ -557,6 +559,7 @@
     <Content Include="Content\pages\home.css" />
     <Content Include="Content\pages\homestorage.css" />
     <Content Include="Content\pages\keyboard-input.css" />
+    <Content Include="Content\pages\kitchen-products-list.css" />
     <Content Include="Content\ripples.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -684,6 +687,8 @@
     <Content Include="Areas\Private\Views\Shared\EditorTemplates\Double.cshtml" />
     <Content Include="Areas\Private\Views\Shared\_HomeStoragePanelLayout.cshtml" />
     <Content Include="Areas\Private\Views\Shared\_HomeStorageNavigation.cshtml" />
+    <Content Include="Areas\Private\Views\Kitchen\Index.cshtml" />
+    <Content Include="Areas\Private\Views\Kitchen\_List.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

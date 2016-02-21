@@ -1,0 +1,77 @@
+﻿@using Econom.Web.Areas.Private.ViewModels
+@model ICollection<StorageProductViewModel>
+
+<h4 class="title orange-opacity">Select Products</h4>
+@(Html.Kendo().MultiSelect()
+          .Name("products")
+          .DataTextField("Name")
+          .DataValueField("ID")
+          .BindTo(Model)
+          .Height(400)
+          .Events(e =>
+          {
+              e.Select("onSelect");
+          })
+          .HeaderTemplate("<div class=\"dropdown-header k-widget k-header\">" +
+                        "<span>Product</span>" +
+                        "<span></span>" +
+                    "</div>")
+    .ItemTemplate("<span class=\"k-state-default\" style=\"background-image: url(" + Url.Content("~/Content/Images/food-icon.png") + ");\" ></span>" +
+              "<span class=\"k-state-default\"><h3>#: data.Name #</h3><p>#: data.Quantity #</p></span>")
+    .TagTemplate("<span class=\"selected-value\" style=\"background-image: url(" + Url.Content("~/Content/Images/food-icon.png") + ");\" ></span>" +
+                 "<span>#: data.Name #</span>")
+)
+
+<a class="btn btn-lg kendo-style-bg" data-role="generate-recipe" href="@Url.Action("GetRecipes", "Kitchen")">Get Recipe Ideas</a>
+
+<div class="title" id="recipes">
+
+</div>
+<script>
+    $(document).ready(function () {
+        var products = $("#products").data("kendoMultiSelect");
+
+        products.wrapper.attr("id", "products-wrapper");
+    });
+
+    var selectedIds = {};
+    function onSelect(e) {
+
+        var dataItem = this.dataSource.view()[e.item.index()];
+
+        if (selectedIds[dataItem.ID] == undefined) {
+            selectedIds[dataItem.ID] = 0;
+        }
+        selectedIds[dataItem.ID] = +selectedIds[dataItem.ID] + 1;
+
+        //  console.log("event :: select (" + dataItem.Name + " : " + dataItem.ID + ")");
+
+    }
+
+    $('a[data-role="generate-recipe"]').click(function (e) {
+        var data = [];
+
+        for (var k in selectedIds) {
+            if (selectedIds.hasOwnProperty(k)) {
+                if (selectedIds[k] % 2 == 1) {
+                    data.push(+k);
+                }
+            }
+        }
+
+        $.ajax({
+            url: "@Url.Action("GetRecipes", "Kitchen")",
+            type: "POST",
+            data: { data: data },
+            dataSource: 'application/json',
+            success: function (data) {
+                console.log("success!");
+                console.log(data);
+                $('#recipes').html(data.Message);
+            }
+        })
+        e.preventDefault();
+        console.log(data);
+    });
+
+</script>

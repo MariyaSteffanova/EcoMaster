@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Private/Views/Shared/_HomeStoragePanelLayout.cshtml";
+}
+@Styles.Render("~/Content/kendo-css")
+@Styles.Render("~/Content/kitchen-products-list")
+<h2 class="title kendo-style-bg">Kitchen</h2>
+<h3></h3>
+@Html.Action("List", "Kitchen", new { area = "Private" })
+

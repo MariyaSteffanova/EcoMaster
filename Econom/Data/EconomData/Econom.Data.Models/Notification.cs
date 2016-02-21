@@ -1,12 +1,7 @@
 ﻿namespace Econom.Data.Models
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Notification
     {
@@ -14,8 +9,6 @@
         public int ID { get; set; }
 
         public string SenderID { get; set; }
-
-        public bool Seen { get; set; }
 
         [ForeignKey("SenderID")]
         public User Sender { get; set; }
