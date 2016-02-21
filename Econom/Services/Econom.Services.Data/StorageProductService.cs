@@ -23,6 +23,16 @@ namespace Econom.Services.Data
             this.users = users;
         }
 
+        public IQueryable<StorageProduct> All(string userId)
+        {
+            var homeStorageId = (int)this.users.GetAll().FirstOrDefault(x => x.Id == userId).HomeStorageID;
+
+            return this.storages
+                .All()
+                .Where(x => x.ID == homeStorageId)
+                .SelectMany(x => x.Products.Where(p => !p.IsDeleted));
+        }
+
         public void Add(int productId, string userId)
         {
             var homeStorageId = (int)this.users.GetAll().FirstOrDefault(x => x.Id == userId).HomeStorageID;
@@ -34,17 +44,21 @@ namespace Econom.Services.Data
             });
 
             this.products.SaveChanges();
-            //this.storages.All()
-            //    .FirstOrDefault(x => x.Owners
-            //            .Any(o => o.Id == userId))
-            //    .Products
-            //    .Add(new StorageProduct()
-            //    {
-            //        ProductID = productId,
-            //        Quantity = 1
-            //    });
+        }
 
-            //this.storages.SaveChanges();
+        public void Update(int id, double quantity)
+        {
+            var product = this.products.All().FirstOrDefault(x => x.ID == id);
+
+            product.Quantity = quantity;
+            this.products.SaveChanges();
+
+        }
+
+        public void Delete(int id)
+        {
+            this.products.Delete(id);
+            this.products.SaveChanges();
         }
     }
 }
