@@ -11,7 +11,7 @@
 
     public class BarcodeSearcherService : IBarcodeSearcherService
     {
-        private readonly ICollection<IProvider> providers = new Collection<IProvider>();
+        private readonly ICollection<IProductProvider> providers = new Collection<IProductProvider>();
 
         public BarcodeSearcherService(IItemMasterProvider itemMasterProvider)
         {
