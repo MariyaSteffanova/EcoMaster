@@ -3,5 +3,10 @@
     ViewBag.Title = "Index";
 }
 @Styles.Render("~/Content/homestorage")
-<h2>Index</h2>
+<h2 class="title kendo-style-bg">Welcome Home</h2>
+<h3 class="title orange-opacity">
+    <i>
+        Here you can organize the products in your storage - change quantity or delete manual products. By default if all flatmates approve given suggestion for recipe, the related products will be copied to Kitchen tab. You will be able to delete product from Kitchen tab also. Have fun and do not forget to wartch your Eco Index.
+    </i>
+</h3>
 @Html.Action("Index", "StorageProductsGrid")

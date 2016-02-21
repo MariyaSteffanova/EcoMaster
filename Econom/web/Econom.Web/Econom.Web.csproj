@@ -682,6 +682,8 @@
     <Content Include="Content\Kendo\2016.1.112\images\kendoui.woff" />
     <Content Include="Areas\Private\Views\StorageProductsGrid\_Index.cshtml" />
     <Content Include="Areas\Private\Views\Shared\EditorTemplates\Double.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\_HomeStoragePanelLayout.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\_HomeStorageNavigation.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

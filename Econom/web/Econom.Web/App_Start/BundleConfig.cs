@@ -74,7 +74,8 @@
 
             bundles.Add(new StyleBundle("~/Content/kendo-css").Include(
                 "~/Content/kendo/kendo.common.min.css",
-                "~/Content/kendo/kendo.metro.min.css"));
+                "~/Content/kendo/kendo.metro.min.css"
+                ));
         }
     }
 }

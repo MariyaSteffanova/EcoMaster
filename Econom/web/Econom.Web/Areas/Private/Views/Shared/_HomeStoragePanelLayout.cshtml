@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "_HomeStoragePanelLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+<div class="row">
+    <div class="col-md-3">
+        @Html.Partial("_HomeStorageNavigation")
+    </div>
+    <div class="col-md-9">
+        @RenderBody()
+    </div>
+</div>

@@ -5,3 +5,73 @@
 .btn-lg {
     width: 100%;
 }
+
+.container {
+    max-width: 1640px !important;
+}
+/*#homestorage-nav {
+    position: fixed;
+    left: 2%;
+}*/
+
+.orange-opacity {
+    background-color: rgba(252, 100, 14, 0.8);
+}
+
+#homestorage-nav {
+    margin-top: 19px;
+}
+
+#homestorage-nav .icon-bar{
+    color: white!important;
+}
+
+@media (min-width: 768px) {
+    #homestorage-nav .navbar-collapse {
+        height: auto;
+        border-top: 0;
+        box-shadow: none;
+        max-height: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+        #homestorage-nav .navbar-collapse.collapse {
+            display: block !important;
+            width: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+        }
+
+        #homestorage-nav .navbar-collapse.in {
+            overflow-x: visible;
+        }
+
+    #homestorage-nav .navbar {
+        max-width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        background-color: rgba(0,0,0,0.7) !important;
+    }
+
+    #homestorage-nav .navbar-nav,
+    #homestorage-nav .navbar-nav > li,
+    #homestorage-nav .navbar-left,
+    #homestorage-nav .navbar-right,
+    #homestorage-nav .navbar-header {
+        float: none !important;
+    }
+
+        #homestorage-nav .navbar-right .dropdown-menu {
+            left: 0;
+            right: auto;
+        }
+
+    #homestorage-nav .navbar-collapse .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+    }
+
+    #homestorage-nav li:hover {
+        background-color: rgba(126, 167, 0, 0.7);
+    }
+}

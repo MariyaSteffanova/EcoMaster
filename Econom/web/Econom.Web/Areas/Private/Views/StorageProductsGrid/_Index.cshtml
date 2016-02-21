@@ -10,12 +10,12 @@
       .Columns(columns =>
       {
           columns.Bound(c => c.Name);
-          columns.Bound(c => c.Quantity);
-          columns.Bound(c => c.CreatedOn).Format("{0:M/dd/yyyy}");
+          columns.Bound(c => c.Quantity).MinScreenWidth(5);
+          columns.Bound(c => c.CreatedOn).Format("{0:M/dd/yyyy}").MinScreenWidth(0);
 
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
       })
-      .ColumnMenu()
+
       .Editable(editable => editable.Mode(GridEditMode.InLine))
       .Pageable()
       .Navigatable()
@@ -24,7 +24,7 @@
           sortable.SortMode(GridSortMode.SingleColumn);
       })
       .Filterable(f => f.Mode(GridFilterMode.Menu))
-
+      //.Mobile(MobileMode.Phone)
       .DataSource(dataSource => dataSource
           .Ajax()
 

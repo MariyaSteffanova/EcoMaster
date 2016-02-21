@@ -146,7 +146,7 @@ textarea {
     }
 
     .main-menu li:hover {
-        background-color: #99cc00;
+        background-color: rgba(126, 167, 0, 0.7);
     }
 
 .logo {
