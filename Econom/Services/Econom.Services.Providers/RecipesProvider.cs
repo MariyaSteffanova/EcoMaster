@@ -25,7 +25,7 @@
             return queryVariations;
         }
 
-        public static void GetVariationsWithoutRepetition(IList<string> set, List<string>variations, int index, int k, int from)
+        public static void GetVariationsWithoutRepetition(IList<string> set, List<string> variations, int index, int k, int from)
         {
             if (index == k)
             {
@@ -45,46 +45,67 @@
 
     public class RecipesProvider : IRecipesProvider
     {
-        private readonly string API_KEY = "";
+        private readonly string API_KEY = "d6f6d7468f88b4abb9f2c6ddb44020eb";
         private readonly string SEARCH_URL = "http://food2fork.com/api/search?key={0}&q={1}";
-       
-
-        public RecipesProvider()
-        {
-           // queryVariations = new List<string[]>();
-        }
+        private readonly string DETAILS_URL = "http://food2fork.com/api/get?key={0}&rId={1}";
 
         public IQueryable<RecipeResult> GetRecipes(IList<string> ingredients)
         {
             var result = new List<RecipeResult>();
 
-            // TODO: Get listS with recipes from combination of ingredients
-            // TODO: Order by matches, keeping the dateTime ordering
             var queryVariationsResult = QueryCombinationGenerator
                             .GetQueryVariations(ingredients)
-                            .OrderByDescending(x=>x.Count);
+                            .OrderByDescending(x => x.Count);
 
+            this.GetRecipesList(result, queryVariationsResult);
+            this.GetRecipesDetails(result);
 
+            return result.AsQueryable();
+        }
+
+        private void GetRecipesDetails(List<RecipeResult> result)
+        {
+            foreach (var recipe in result)
+            {
+                var url = string.Format(DETAILS_URL, API_KEY, recipe.Food2ForkID);
+                var responseString = this.Request(url);
+                var ingredientsResponse = JsonConvert.DeserializeObject<RecipeDetailsQueryResponse>(responseString).Recipe;
+                recipe.Ingredients =ingredientsResponse.Ingredients;
+            }
+        }
+
+        private void GetRecipesList(List<RecipeResult> result, IOrderedEnumerable<List<string>> queryVariationsResult)
+        {
             foreach (var query in queryVariationsResult)
             {
-                var url = string.Format(SEARCH_URL, API_KEY, string.Join("&", query));
-
-                using (var client = new HttpClient())
+                if (result.Count >= 30)
                 {
-                    var response = client.GetAsync(url).Result;
+                    return;
+                }
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var responseContent = response.Content;
+                var url = string.Format(SEARCH_URL, API_KEY, string.Join("&", query));
+                var responseString = this.Request(url);
 
-                        string responseString = responseContent.ReadAsStringAsync().Result;
-                        var recipes = JsonConvert.DeserializeObject<RecipesQueryResponse>(responseString);
-                        result.AddRange(recipes.Recipes);
-                    }
+                var recipes = JsonConvert.DeserializeObject<RecipesQueryResponse>(responseString);
+                result.AddRange(recipes.Recipes);
+            }
+        }
+
+        private string Request(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response = client.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    HttpContent responseContent = response.Content;
+
+                    return responseContent.ReadAsStringAsync().Result;
                 }
             }
 
-            return result.AsQueryable();
+            return string.Empty;
         }
     }
 }

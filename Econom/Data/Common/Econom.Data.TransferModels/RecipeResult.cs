@@ -18,6 +18,6 @@
         public string SocialRank { get; set; }
 
         [JsonProperty("ingredients")]
-        public IEnumerable<string> Ingredients { get; set; }
+        public List<string> Ingredients { get; set; }
     }
 }
