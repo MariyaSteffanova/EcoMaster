@@ -6,6 +6,7 @@
     using Kendo.Mvc.UI;
     using Microsoft.AspNet.Identity;
     using Services.Data.Contracts;
+    using Services.Searchers.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -14,11 +15,13 @@
     using ViewModels;
     public class KitchenController : BaseMapController
     {
-        private IStorageProductsService storageProductsService;
+        private readonly IStorageProductsService storageProductsService;
+        private readonly IRecipesSearcherService recipesSearcher;
 
-        public KitchenController(IStorageProductsService storageProductsService)
+        public KitchenController(IStorageProductsService storageProductsService, IRecipesSearcherService recipesSearcher)
         {
             this.storageProductsService = storageProductsService;
+            this.recipesSearcher = recipesSearcher;
         }
 
         // GET: Private/Kitchen
@@ -50,6 +53,7 @@
      
         public ActionResult GetRecipes(IEnumerable<int> data)
         {
+            var result = this.recipesSearcher.SearchRecipes(data); // TODO: 
             return this.Json(new { Message = "yep" }, JsonRequestBehavior.AllowGet);
         }
     }
