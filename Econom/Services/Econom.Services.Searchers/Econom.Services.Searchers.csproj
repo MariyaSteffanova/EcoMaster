@@ -61,6 +61,10 @@
       <Project>{e275f6a7-50c9-4f43-aea4-a874b59680eb}</Project>
       <Name>Data.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Data\Common\Econom.Data.Static\Econom.Data.Static.csproj">
+      <Project>{0a7c87b2-cb37-41a5-83f4-f34b6068b871}</Project>
+      <Name>Econom.Data.Static</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Common\Econom.Data.TransferModels\Econom.Services.TransferModels.csproj">
       <Project>{5542ebc8-aa21-4b96-a315-1f38e4bca359}</Project>
       <Name>Econom.Services.TransferModels</Name>

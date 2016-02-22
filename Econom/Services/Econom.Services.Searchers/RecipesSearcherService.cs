@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Econom.Data.Models;
 using Econom.Services.Providers.Contracts;
 using Econom.Services.TransferModels;
+using Econom.Data.Static;
 
 namespace Econom.Services.Searchers
 {
@@ -29,12 +30,58 @@ namespace Econom.Services.Searchers
                             .ByIds(storageProductsIds)
                             .OrderBy(x => x.CreatedOn)
                             .Select(x => x.Product.Name)
+                            .ToList()
                             .SelectMany(name => name
                                             .Split(new[] { " ", ",", ";" }, StringSplitOptions.RemoveEmptyEntries)
-                                            .Select(word => word.ToLower()));
+                                            .Select(word => word.ToLower())
+                                            .Where(IsNotAcronim)
+                                            .Where(DoesNotHaveAdjSuffix)
+                                            .Where(IsNotNoise)
+                                            .Where(IsNotAdjective))
+                            .ToList();
 
-           return this.recipeProvider
-                            .GetRecipes(possibleIngredients);                            
+            return this.recipeProvider
+                             .GetRecipes(possibleIngredients);
         }
+
+        private Func<string, bool> IsNotAcronim = x =>
+        {
+            if (x.Any(ch => !char.IsLetter(ch)))
+            {
+                return false;
+            }
+
+            return true;
+        };
+
+        private Func<string, bool> DoesNotHaveAdjSuffix = x =>
+        {
+            if (FoodDictionary.AdjectiveSuffixes.Any(suffix => x.EndsWith(suffix)))
+            {
+                return false;
+            }
+
+            return true;
+        };
+
+        private Func<string, bool> IsNotNoise = x =>
+        {
+            if (FoodDictionary.Noise.Contains(x))
+            {
+                return false;
+            }
+
+            return true;
+        };
+
+        private Func<string, bool> IsNotAdjective = x =>
+        {
+            if (FoodDictionary.Adjectives.Contains(x))
+            {
+                return false;
+            }
+
+            return true;
+        };
     }
 }
