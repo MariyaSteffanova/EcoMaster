@@ -15,60 +15,7 @@
 <h1 class="jumbo-title">Heading, some croud marketing bla and more and more it should be at least two rows</h1>
 
 @*ways to input products*@
-<div class="input-possibilities">
-    <div class="">
-        <div class="">
-            <h3>4 ways to tell your fridge what it has inside ...</h3>
-        </div>
-        <div class="">
-            <ul class="nav navbar-nav info-box">
-                <li class="col-md-3 ">
-                    <div class="info-circle">
-                        <a href="@Url.Action("Keyboard", "Input")">
-                            <span class="fa fa-barcode"></span>
-                        </a>
-                    </div>
-                    <div class="info-box-text">
-                        <span>With barcode scan</span>
-                    </div>
-                </li>
-                <li class="col-md-3 info-box">
-                    <div class="info-circle">
-                        <a href="@Url.Action("Keyboard", "Input")">
-                            <span class="fa fa-camera"></span>
-                        </a>
-                    </div>
-                    <div class="info-box-text">
-                        <span>With barcode scan</span>
-                    </div>
-                </li>
-                <li class="col-md-3  info-box">
-                    <div class="info-circle">
-                        <a href="@Url.Action("Input", "Keyboard")">
-                            <span class="fa fa-keyboard-o"></span>
-                        </a>
-                    </div>
-                    <div class="info-box-text">
-                        <span>With barcode scan</span>
-                    </div>
-                </li>
-                <li class="col-md-3 info-box">
-                    <div class="info-circle">
-                        <a href="@Url.Action("Keyboard", "Input")">
-                            <span class="fa fa-microphone"></span>
-                        </a>
-                    </div>
-                    <div class="info-box-text">
-                        <span>With barcode scan</span>
-                    </div>
-                </li>
-                <li>
-
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+@Html.Partial("_SearchOptions")
 @*/ways to input products*@
 
 <!-- /site wrap -->

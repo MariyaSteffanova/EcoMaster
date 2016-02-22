@@ -251,6 +251,7 @@
     <Compile Include="Areas\Public\Controllers\ImagesController.cs" />
     <Compile Include="Areas\Public\Controllers\IntroController.cs" />
     <Compile Include="Areas\Public\Controllers\KeyboardController.cs" />
+    <Compile Include="Areas\Private\Controllers\SearchController.cs" />
     <Compile Include="Areas\Public\InputModels\Account\RegisterInputModel.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
@@ -570,6 +571,7 @@
     <Content Include="Content\pages\homestorage.css" />
     <Content Include="Content\pages\keyboard-input.css" />
     <Content Include="Content\pages\kitchen-products-list.css" />
+    <Content Include="Content\pages\search-options.css" />
     <Content Include="Content\ripples.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -715,6 +717,10 @@
     <Content Include="Areas\Admin\Views\FoodStorages\Index.cshtml" />
     <Content Include="Areas\Admin\Views\FoodStorages\_FoodStoragesGrid.cshtml" />
     <Content Include="Areas\Private\Views\Flatmates\Index.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\_SearchBarcodeKeyboardField.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_SearchOptions.cshtml" />
+    <Content Include="Areas\Private\Views\Search\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -874,9 +880,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Public\Views\Home\About.cshtml" />
     <Content Include="Areas\Public\Views\Home\Contact.cshtml" />
     <Content Include="Areas\Public\Views\Home\Index.cshtml" />
@@ -1036,7 +1040,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Private\Views\StorageProducts\" />
     <Folder Include="Areas\Private\Views\User\" />
     <Folder Include="Areas\Public\Views\Images\" />
     <Folder Include="Areas\Public\Views\StorageProducts\" />

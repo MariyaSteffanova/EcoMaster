@@ -66,7 +66,8 @@
 
             bundles.Add(new StyleBundle("~/Content/home").Include(
               "~/Content/font-awesome.min.css",
-                "~/Content/pages/home.css"));
+                "~/Content/pages/home.css",
+                "~/Content/pages/search-options.css"));
 
             bundles.Add(new StyleBundle("~/Content/keyboard").Include(
                "~/Content/pages/keyboard-input.css"));
@@ -76,7 +77,8 @@
 
             bundles.Add(new StyleBundle("~/Content/homestorage").Include(
                   "~/Content/font-awesome.min.css",
-                  "~/Content/pages/homestorage.css"));
+                  "~/Content/pages/homestorage.css",
+                  "~/Content/pages/search-options.css"));
 
             bundles.Add(new StyleBundle("~/Content/kitchen-products-list").Include(
                 "~/Content/pages/kitchen-products-list.css"));
