@@ -1,0 +1,41 @@
+﻿@using Kendo.Mvc;
+@using Econom.Web.Areas.Admin.ViewModels;
+
+@model IEnumerable<UserViewModel>
+
+@(Html.Kendo().Grid(Model)
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Email);
+          columns.Bound(c => c.FirstName);
+          columns.Bound(c => c.LastName).MinScreenWidth(5);
+          columns.Bound(c => c.Country);
+          columns.Bound(c => c.Town);
+          columns.Bound(c => c.FlatmatesCount);
+
+          columns.Command(command => { command.Edit(); }).Width(250);
+      })
+
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Navigatable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable(f => f.Mode(GridFilterMode.Menu))
+      //.Mobile(MobileMode.Phone)
+      .DataSource(dataSource => dataSource
+          .Ajax()
+
+          .PageSize(7)
+          .Model(model =>
+          {
+              model.Id(p => p.Email);
+              model.Field(x => x.FlatmatesCount).Editable(false);
+          })
+          .Read(read => read.Action("Get", "Users"))
+          .Update(update => update.Action("Update", "Users"))
+      )
+)

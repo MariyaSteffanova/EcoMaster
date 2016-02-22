@@ -53,5 +53,11 @@
                              .Where(x => x.UserName == username)
                              .FirstOrDefault();
         }
+
+        public void Update(User model)
+        {
+            this.users.Update(model);
+            this.users.SaveChanges();
+        }
     }
 }

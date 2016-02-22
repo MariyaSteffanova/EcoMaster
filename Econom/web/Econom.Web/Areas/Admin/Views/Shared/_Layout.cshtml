@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/kendo-css")
     @Styles.Render("~/Content/admin-css")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
-
     @Scripts.Render("~/bundles/modernizr")
 
     @*<script src="@Url.Content("~/Scripts/kendo/2016.1.112/jszip.min.js")"></script>*@

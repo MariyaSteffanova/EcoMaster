@@ -16,5 +16,7 @@
         IQueryable<User> GetAll();
 
         IQueryable<User> GetByEmails(ICollection<string> emails);
+
+        void Update(User model);
     }
 }
