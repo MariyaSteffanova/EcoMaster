@@ -1,0 +1,45 @@
+﻿@using Kendo.Mvc;
+@using Econom.Web.Areas.Admin.ViewModels;
+
+@model IEnumerable<FoodStorageViewModel>
+
+@(Html.Kendo().Grid(Model)
+      .Name("grid_storages")
+      .ColumnResizeHandleWidth(10)
+      .Resizable(conf => conf.Columns(true))
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.ID);
+          columns.Bound(c => c.CreatedOn).Format("{0:M/dd/yyyy}");
+          columns.Bound(c => c.ModifiedOn).Format("{0:M/dd/yyyy}").MinScreenWidth(5);
+          columns.Bound(c => c.Country);
+          columns.Bound(c => c.Town);
+          columns.Bound(c => c.OwnersCount).Title("Owners").Width(10);
+          columns.Bound(c => c.ProductsCount).Title("Products").Width(10);
+
+          columns.Command(command => { command.Destroy(); }).Width(100);
+      })
+
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Navigatable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable(f => f.Mode(GridFilterMode.Menu))
+      //.Mobile(MobileMode.Phone)
+      .DataSource(dataSource => dataSource
+          .Ajax()
+
+          .PageSize(7)
+          .Model(model =>
+          {
+              model.Id(p => p.ID);
+              model.Field(x => x.CreatedOn).Editable(false);
+          })
+          .Read(read => read.Action("Get", "FoodStorages"))
+          .Destroy(destroy=> destroy.Action("Destroy","FoodStorages"))
+      )
+)
+

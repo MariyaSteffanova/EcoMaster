@@ -20,21 +20,9 @@
             this.users = users;
         }
 
-        public HomeStorage AddFlatmates(string ownerId, IEnumerable<string> userEmails)
+        public IQueryable<HomeStorage> GetAll()
         {
-            var owner = this.users.All().FirstOrDefault(x => x.Id == ownerId);
-
-            this.users.All()
-                  .Where(x => userEmails.Contains(x.Email))
-                  .ToList()
-                  .ForEach((x) =>
-                  {
-                      owner.HomeStorage.Owners.Add(x);
-                  });
-
-            this.users.SaveChanges();
-
-            return owner.HomeStorage;
+            return this.storages.All();
         }
 
         public HomeStorage Create(HomeStorage model, string userId)
@@ -52,9 +40,32 @@
             return user.HomeStorage;
         }
 
+        public HomeStorage AddFlatmates(string ownerId, IEnumerable<string> userEmails)
+        {
+            var owner = this.users.All().FirstOrDefault(x => x.Id == ownerId);
+
+            this.users.All()
+                  .Where(x => userEmails.Contains(x.Email))
+                  .ToList()
+                  .ForEach((x) =>
+                  {
+                      owner.HomeStorage.Owners.Add(x);
+                  });
+
+            this.users.SaveChanges();
+
+            return owner.HomeStorage;
+        }
+
         public bool Exist(int id)
         {
             return this.storages.All().Any(x => x.ID == id);
+        }
+
+        public void Delete(int id)
+        {
+            this.storages.Delete(id);
+            this.storages.SaveChanges();
         }
     }
 }

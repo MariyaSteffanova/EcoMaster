@@ -233,6 +233,7 @@
     <Compile Include="Areas\Admin\Controllers\FoodStoragesController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\ViewModels\DashboardViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\FoodStorageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\StoragesLocationsViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserViewModel.cs" />
     <Compile Include="Areas\Private\Controllers\FlatmatesController.cs" />
@@ -711,6 +712,9 @@
     <Content Include="Areas\Admin\Views\Dashboard\_StoragesLocationMap.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\_UsersGrid.cshtml" />
+    <Content Include="Areas\Admin\Views\FoodStorages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FoodStorages\_FoodStoragesGrid.cshtml" />
+    <Content Include="Areas\Private\Views\Flatmates\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1032,8 +1036,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\FoodStorages\" />
-    <Folder Include="Areas\Private\Views\Flatmates\" />
     <Folder Include="Areas\Private\Views\StorageProducts\" />
     <Folder Include="Areas\Private\Views\User\" />
     <Folder Include="Areas\Public\Views\Images\" />
