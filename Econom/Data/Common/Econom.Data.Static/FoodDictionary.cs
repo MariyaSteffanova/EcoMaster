@@ -15,7 +15,31 @@ namespace Econom.Data.Static
 
         public static IList<string> Noise = new List<string>
         {
-            "strength", "health", "all", "fitnes", "extra", "multi", "ultimate", "all", "cento", "nature"
+            "strength", "health", "all", "fitnes", "extra", "multi", "ultimate", "all", "cento", "nature","organic",
+"original",
+"dairy",
+"firm",
+"house",
+"plus",
+"food",
+"foods",
+"slice",
+"twin",
+"real",
+"instant",
+"skin",
+"style",
+"pack",
+"man",
+"woman",
+"baby",
+"pure",
+"value",
+"guarantee",
+"simply",
+"glory",
+"chef",
+"express"
         };
 
         public static List<string> Adjectives = new List<string>()
