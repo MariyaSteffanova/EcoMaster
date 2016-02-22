@@ -4,7 +4,8 @@
     using Econom.Web.Infrastructure.Mapping;
     using AutoMapper;
     using System;
-    using System.ComponentModel.DataAnnotations;    // TODO: Image
+    using System.ComponentModel.DataAnnotations;  
+
     public class StorageProductViewModel : IMapFrom<StorageProduct>, IHaveCustomMappings
     {
         [Editable(false)]
@@ -15,12 +16,14 @@
 
         public string Name { get; set; }
 
+        [Range(0,int.MaxValue)]
         public double Quantity { get; set; }
 
         public decimal Percentage { get; set; }
 
         public string EcoNotes { get; set; }
 
+        [Editable(false)]
         public DateTime CreatedOn { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)

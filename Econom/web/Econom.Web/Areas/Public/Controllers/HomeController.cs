@@ -6,7 +6,7 @@
 
     public class HomeController : BaseController
     {
-        [OutputCache(Duration = 60 * 15)]
+        // TODO: Cache without user
         public ActionResult Index()
         {
             return this.View();
