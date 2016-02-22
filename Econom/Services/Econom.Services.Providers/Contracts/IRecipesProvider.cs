@@ -6,6 +6,6 @@
 
     public interface IRecipesProvider
     {
-        IQueryable<RecipeResult> GetRecipes(IEnumerable<string> ingredients);
+        IQueryable<RecipeResult> GetRecipes(IList<string> ingredients);
     }
 }
