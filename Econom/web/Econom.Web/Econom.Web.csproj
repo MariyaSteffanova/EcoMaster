@@ -239,6 +239,7 @@
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Areas\Private\ViewModels\HomeStorageViewModel.cs" />
     <Compile Include="Areas\Private\ViewModels\FlatmateViewModel.cs" />
+    <Compile Include="Areas\Private\ViewModels\RecipeSearchResultViewModel.cs" />
     <Compile Include="Areas\Private\ViewModels\StorageProductViewModel.cs" />
     <Compile Include="Areas\Public\Controllers\ImagesController.cs" />
     <Compile Include="Areas\Public\Controllers\IntroController.cs" />
@@ -689,6 +690,11 @@
     <Content Include="Areas\Private\Views\Shared\_HomeStorageNavigation.cshtml" />
     <Content Include="Areas\Private\Views\Kitchen\Index.cshtml" />
     <Content Include="Areas\Private\Views\Kitchen\_List.cshtml" />
+    <Content Include="Areas\Private\Views\Kitchen\_RecipesFound.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\DisplayTemplates\RecipeSearchResultViewModel.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\DisplayTemplates\RecipeSocialRank.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\DisplayTemplates\RecipeImage.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\DisplayTemplates\RecipeIngredients.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

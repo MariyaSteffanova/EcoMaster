@@ -45,7 +45,7 @@
 
     public class RecipesProvider : IRecipesProvider
     {
-        private readonly string API_KEY = "d6f6d7468f88b4abb9f2c6ddb44020eb";
+        private readonly string API_KEY = "eb9804827145e33b9a73ef2a64bbff04";
         private readonly string SEARCH_URL = "http://food2fork.com/api/search?key={0}&q={1}";
         private readonly string DETAILS_URL = "http://food2fork.com/api/get?key={0}&rId={1}";
 

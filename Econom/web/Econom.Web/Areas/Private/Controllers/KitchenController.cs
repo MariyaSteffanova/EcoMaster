@@ -50,11 +50,14 @@
             return Json(viewModels.ToDataSourceResult(request, this.ModelState), JsonRequestBehavior.AllowGet);
         }
 
-     
+        [OutputCache(Duration = 60 * 15)]
         public ActionResult GetRecipes(IEnumerable<int> data)
         {
-            var result = this.recipesSearcher.SearchRecipes(data); // TODO: 
-            return this.Json(new { Message = "yep" }, JsonRequestBehavior.AllowGet);
+            var result = this.recipesSearcher.SearchRecipes(data)
+                .To<RecipeSearchResultViewModel>()
+                .ToList(); // TODO: 
+
+            return this.PartialView("_RecipesFound", result);
         }
     }
 }

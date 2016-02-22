@@ -1,0 +1,8 @@
+﻿@using Econom.Web.Areas.Private.ViewModels
+@model List<RecipeSearchResultViewModel>
+
+
+@foreach (var recipe in Model)
+    {
+        @Html.DisplayFor(model => recipe)
+    }
