@@ -50,7 +50,7 @@
             return Json(viewModels.ToDataSourceResult(request, this.ModelState), JsonRequestBehavior.AllowGet);
         }
 
-        [OutputCache(Duration = 60 * 15)]
+      //  [OutputCache(Duration = 60 * 15)]
         public ActionResult GetRecipes(IEnumerable<int> data)
         {
             var result = this.recipesSearcher.SearchRecipes(data)

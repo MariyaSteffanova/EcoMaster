@@ -1,3 +1,11 @@
 ﻿@model string
- 
-<div>Im image!! @Model</div>
+
+<div class="col-md-4 img-wrapper-recipe">
+
+    @if (!string.IsNullOrWhiteSpace(Model))
+    {
+        @(Html.Image(Url.Action("GetImage", "Images", new { area = "Public",  url = Model }),
+                   "",
+                   new { @class = "img-found-product" }))
+    }
+</div>

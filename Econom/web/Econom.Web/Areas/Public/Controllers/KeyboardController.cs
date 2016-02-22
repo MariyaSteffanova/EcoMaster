@@ -18,6 +18,7 @@
             this.productProcessorService = productProcessorService;
         }
 
+        [OutputCache(Duration = 60 * 15)]
         public ActionResult Input()
         {
             return this.View(string.Empty);

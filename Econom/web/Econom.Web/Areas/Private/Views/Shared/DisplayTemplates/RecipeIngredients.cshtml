@@ -1,6 +1,19 @@
-﻿@model IEnumerable<string>
+﻿@model List<string>
 
-@foreach (var ingredient in Model)
-{
-    <span class="alert alert-success">@ingredient</span>
-}
+
+<a data-role="show-ingredients">View All</a>
+<div class="ingredients-preview">
+    @for (int i = 0; i < 3; i++)
+    {
+        <span class="fa fa-spoon orange-opacity-color">@Model[i]</span>
+    }
+</div>
+<p>...</p>
+
+<div class="ingredients" draggable="true">
+    <a data-role="hide-ingredients"><span class="fa fa-close"></span></a>
+    @foreach (var ingredient in Model)
+    {
+        <span class="fa fa-spoon orange-opacity-color">@ingredient</span>
+    }
+</div>
