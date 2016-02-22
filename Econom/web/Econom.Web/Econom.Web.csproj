@@ -229,6 +229,9 @@
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\DashboardViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\StoragesLocationsViewModel.cs" />
     <Compile Include="Areas\Private\Controllers\FlatmatesController.cs" />
     <Compile Include="Areas\Private\Controllers\KitchenController.cs" />
     <Compile Include="Areas\Private\Controllers\StorageProductsGridController.cs" />
@@ -277,6 +280,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\site.css" />
     <Content Include="Content\bootstrap-material-design.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -285,6 +289,7 @@
     <Content Include="Content\file-upload.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\admin-background-patterns.jpg" />
     <Content Include="Content\Images\background.jpg" />
     <Content Include="Content\Images\barcode.svg.png" />
     <Content Include="Content\Images\food-icon.png" />
@@ -695,6 +700,12 @@
     <Content Include="Areas\Private\Views\Shared\DisplayTemplates\RecipeSocialRank.cshtml" />
     <Content Include="Areas\Private\Views\Shared\DisplayTemplates\RecipeImage.cshtml" />
     <Content Include="Areas\Private\Views\Shared\DisplayTemplates\RecipeIngredients.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_NavigationTop.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_NavigationSide.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\_StoragesLocationMap.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1016,14 +1027,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Private\Views\Flatmates\" />
     <Folder Include="Areas\Private\Views\StorageProducts\" />
     <Folder Include="Areas\Private\Views\User\" />
     <Folder Include="Areas\Public\Views\Images\" />
     <Folder Include="Areas\Public\Views\StorageProducts\" />
+    <Folder Include="Content\Admin\pages\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Grid\" />
   </ItemGroup>

@@ -1,0 +1,83 @@
+﻿body {
+    color: white;
+    background-color: rgba(35, 2, 66, 1.0);
+}
+
+
+.title {
+    color: white;
+    padding: 20px;
+}
+
+.kendo-style {
+    color: rgba(126,167,0,1);
+}
+
+.kendo-style-bg {
+    background-color: rgba(126,167,0,0.7);
+}
+
+#admin-nav-top {
+    background-color: black;
+    padding: 10px;
+    border-bottom: 3px solid #7ea700;
+}
+
+#admin-nav-side {
+    margin-top: -20px;
+   
+}
+
+    #admin-nav-side .icon-bar {
+        color: white !important;
+    }
+
+@media (min-width: 768px) {
+    #admin-nav-side .navbar-collapse {
+        height: auto;
+        border-top: 0;
+        box-shadow: none;
+        max-height: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+        #admin-nav-side .navbar-collapse.collapse {
+            display: block !important;
+            width: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+        }
+
+        #admin-nav-side .navbar-collapse.in {
+            overflow-x: visible;
+        }
+
+    #admin-nav-side .navbar {
+        max-width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        background-color: rgba(0,0,0,0.7) !important;
+    }
+
+    #admin-nav-side .navbar-nav,
+    #admin-nav-side .navbar-nav > li,
+    #admin-nav-side .navbar-left,
+    #admin-nav-side .navbar-right,
+    #admin-nav-side .navbar-header {
+        float: none !important;
+    }
+
+        #admin-nav-side .navbar-right .dropdown-menu {
+            left: 0;
+            right: auto;
+        }
+
+    #admin-nav-side .navbar-collapse .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+    }
+
+    #admin-nav-side li:hover {
+        background-color: rgba(126, 167, 0, 0.7);
+    }
+}

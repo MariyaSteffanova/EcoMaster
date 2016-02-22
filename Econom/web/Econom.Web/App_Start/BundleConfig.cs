@@ -51,6 +51,12 @@
                 "~/Content/ripples.min.css",
                 "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/admin-css").Include(
+                       "~/Content/bootstrap.css",
+                       "~/Content/bootstrap-material-design.min.css",
+                       "~/Content/ripples.min.css",
+                       "~/Content/Admin/site.css"));
+
             bundles.Add(new StyleBundle("~/Content/register").Include(
                 "~/Content/pages/account.css",
                 "~/Content/file-upload.css"));
