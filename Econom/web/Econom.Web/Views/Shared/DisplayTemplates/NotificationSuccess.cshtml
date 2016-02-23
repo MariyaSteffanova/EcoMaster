@@ -1,0 +1,12 @@
+﻿@model string
+
+<div class="title kendo-style-bg notification-custom">
+    <a data-role="close-notification"><span class="glyphicon glyphicon-remove"></span></a>
+    <p>@Model</p>
+</div>
+
+<script>
+    $('a[data-role="close-notification"]').click(function (e) {
+        $('.notification-custom').hide();
+    });
+</script>
