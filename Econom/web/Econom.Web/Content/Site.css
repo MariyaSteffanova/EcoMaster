@@ -182,3 +182,11 @@ textarea {
     height: 700px;
     width: 100%;
 }
+
+.notification-custom .glyphicon-remove {
+    color: red;
+    font-size: 48px;
+    cursor: pointer;
+    float: left;
+    margin: -10px 22px 0 0;
+}

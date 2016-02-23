@@ -18,9 +18,13 @@
             this.productProcessorService = productProcessorService;
         }
 
-        [OutputCache(Duration = 60 * 15)]
+      //  [OutputCache(Duration = 60 * 15)]
         public ActionResult Input()
         {
+            if (TempData["Message"] != null)
+            {
+                ViewBag.Message = TempData["Message"];
+            }
             return this.View(string.Empty);
         }
 

@@ -1,12 +1,13 @@
 ﻿namespace Econom.Data.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     using Contracts;
 
-    public class HomeStorage : AuditInfo
+    public class HomeStorage : AuditInfo, IDeletableEntity
     {
         private ICollection<StorageProduct> products;
         private ICollection<User> owners;
@@ -36,5 +37,9 @@
             get { return this.owners; }
             set { this.owners = value; }
         }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
     }
 }

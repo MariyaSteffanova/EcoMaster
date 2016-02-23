@@ -31,9 +31,9 @@
 
         public string ImageUrl { get; set; }
 
+        [ForeignKey("HomeStorage")]
         public int? HomeStorageID { get; set; }
 
-        [ForeignKey("HomeStorageID")]
         public virtual HomeStorage HomeStorage { get; set; }
 
         public ICollection<User> Flatmates

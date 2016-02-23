@@ -25,7 +25,12 @@
 
         public ActionResult Index()
         {
-            return this.View();
+            var flatmates = this.userService
+                            .GetFlatmates(this.User.Identity.GetUserId())
+                            .To<FlatmateViewModel>()
+                            .ToList();
+
+            return this.View(flatmates);
         }
 
         public ActionResult Get(ICollection<string> emails)
@@ -35,9 +40,10 @@
                 return this.PartialView("_FlatmatesGridView", new List<FlatmateViewModel>());
             }
 
-            var users = this.userService.GetByEmails(emails)
-                     .To<FlatmateViewModel>()
-                     .ToList();
+            var users = this.userService
+                            .GetByEmails(emails)
+                            .To<FlatmateViewModel>()
+                            .ToList();
 
             return this.PartialView("_FlatmatesGridView", users);
         }
@@ -45,8 +51,8 @@
         public ActionResult Create([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]IEnumerable<FlatmateViewModel> flatmates)
         {
             var emails = flatmates
-                .Select(x => x.Email)
-                .ToList();
+                            .Select(x => x.Email)
+                            .ToList();
 
             this.storages.AddFlatmates(this.User.Identity.GetUserId(), emails);
 

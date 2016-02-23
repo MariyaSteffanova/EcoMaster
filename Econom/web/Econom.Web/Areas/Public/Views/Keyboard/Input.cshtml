@@ -1,17 +1,23 @@
 ﻿@model string
 @{
     ViewBag.Title = "Input";
+    string notificationMessage = ViewBag.Message;
 }
 
 @Styles.Render("~/Content/keyboard")
 
 <h2>Input</h2>
 <div>
+
+    @if (!string.IsNullOrEmpty(notificationMessage))
+    {
+        @Html.DisplayFor(model => notificationMessage, "NotificationSuccess")
+    }
     <div>
         <div class="input-barcode-keyboard"></div>
-        @using (Html.BeginForm("Find", "Keyboard", FormMethod.Get, new { @class="form-horizontal"}))
+        @using (Html.BeginForm("Find", "Keyboard", FormMethod.Get, new { @class = "form-horizontal" }))
         {
-          <input type="text" name="barcode", placeholder="Enter barcode.." class="form-control"/>
+            <input type="text" name="barcode" , placeholder="Enter barcode.." class="form-control" />
 
             <input type="submit" class="btn btn-default" value="Search" />
         }

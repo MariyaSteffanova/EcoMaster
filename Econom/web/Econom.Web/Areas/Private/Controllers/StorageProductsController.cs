@@ -29,7 +29,7 @@
                  .Add(id, this.User.Identity.GetUserId());
 
             var action = Convert.ToString(this.Session[GlobalConstants.ClientSearchMode]);
-
+            TempData["Message"] =  "Product succesfully added to your Food Storage. You can continue searching for more products."; 
             return this.RedirectToAction("Input", action, new { area = "Public" });
         }
 

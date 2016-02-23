@@ -33,6 +33,13 @@
             return this.users.All();
         }
 
+        public IQueryable<User> GetFlatmates(string userId)
+        {
+            return this.users.All()
+                .Where(x => x.Id == userId)
+                .SelectMany(x => x.HomeStorage.Owners);
+        }
+
         public IQueryable<User> GetByEmails(ICollection<string> emails)
         {
             return this.users.All()

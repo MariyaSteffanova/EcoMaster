@@ -15,6 +15,8 @@
 
         IQueryable<User> GetAll();
 
+        IQueryable<User> GetFlatmates(string userId);
+
         IQueryable<User> GetByEmails(ICollection<string> emails);
 
         void Update(User model);
