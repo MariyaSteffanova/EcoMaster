@@ -3,6 +3,7 @@
     ViewBag.Title = "_HomeStoragePanelLayout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@RenderSection("kendo", false)
 @Styles.Render("~/Content/homestorage")
 <h2></h2>
 <div class="row">
@@ -13,5 +14,8 @@
         @RenderBody()
     </div>
 </div>
-@Scripts.Render("~/bundles/kendo")
+@section kendo{
+    @Scripts.Render("~/bundles/kendo")
+}
+
 @Scripts.Render("~/bundles/private")

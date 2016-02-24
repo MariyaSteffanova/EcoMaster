@@ -4,32 +4,36 @@
     ViewBag.Title = "Create";
     bool isCreated = (bool)(ViewBag.Created ?? false);
 }
-@Styles.Render("~/Content/Kendo-css")
+
 @Styles.Render("~/Content/homestorage")
 @Scripts.Render("~/bundles/jqueryval")
-@Scripts.Render("~/bundles/kendo")
+@section kendo{
+    @Styles.Render("~/Content/Kendo-css")
+    @Scripts.Render("~/bundles/kendo")
+}
+
 <h2 class="kendo-style-bg title ignore-overlay">Create your Home Storage</h2>
 
 <div>
-@{Html.Kendo().PanelBar()
-        .Name("panelbar")
-        .ExpandMode(PanelBarExpandMode.Single)
-        .Items(panelbar =>
-        {
-    // Location Info
-    panelbar.Add()
-                .Text("1. Location information")
-                .Expanded(!isCreated)
-                .Content(@<div>@Html.EditorFor(model => model)</div>);
-        // Flatmates
-        panelbar.Add()
-            .Text("2. Flatmates")
-            .Expanded(isCreated)
-            .Content(
-            @<div>
-                @Html.Action("Get", "Flatmates", new { emails = Model.FlatmatesEmails })
-            </div>);
-        })
+    @{Html.Kendo().PanelBar()
+                                .Name("panelbar")
+                                .ExpandMode(PanelBarExpandMode.Single)
+                                .Items(panelbar =>
+                                {
+                            // Location Info
+                            panelbar.Add()
+                                        .Text("1. Location information")
+                                        .Expanded(!isCreated)
+                                        .Content(@<div>@Html.EditorFor(model => model)</div>);
+                                // Flatmates
+                                panelbar.Add()
+                                    .Text("2. Flatmates")
+                                    .Expanded(isCreated)
+                                    .Content(
+                                    @<div>
+                                        @Html.Action("Get", "Flatmates", new { emails = Model.FlatmatesEmails })
+                                    </div>);
+                                })
         .Render();}
 </div>
 <div>

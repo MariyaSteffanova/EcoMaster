@@ -7,12 +7,11 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/jquery.signalR-1.1.3.js"></script>
     <script src="~/signalr/hubs" type="text/javascript"></script>
 
-    <script src="@Url.Content("~/Scripts/kendo/2016.1.112/jszip.min.js")"></script>
+    @RenderSection("kendo", false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -65,15 +64,15 @@
     @*@Scripts.Render("~/bundles/kendo")*@
     @RenderSection("scripts", required: false)
     <div id="loadingDiv" class="alert alert-success">HEy heyhey</div>
-  <script>
-      var $loading = $('#loadingDiv').hide();
-      $(document)
-        .ajaxStart(function () {
-            $loading.show();
-        })
-        .ajaxStop(function () {
-            $loading.hide();
-        });
-  </script>
+    <script>
+        var $loading = $('#loadingDiv').hide();
+        $(document)
+          .ajaxStart(function () {
+              $loading.show();
+          })
+          .ajaxStop(function () {
+              $loading.hide();
+          });
+    </script>
 </body>
 </html>

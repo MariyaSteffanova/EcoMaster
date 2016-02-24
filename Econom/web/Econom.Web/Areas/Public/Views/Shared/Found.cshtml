@@ -3,18 +3,22 @@
 @{
     ViewBag.Title = "Found";
 }
-@Styles.Render("~/Content/kendo-css")
-@Styles.Render("~/Content/found")
 
+@section kendo{
+    @Styles.Render("~/Content/kendo-css")
+    @Scripts.Render("~/bundles/kendo")
+
+}
+@Styles.Render("~/Content/found")
 
 <h2>Found</h2>
 
 <ul id="found-products-list" class="nav navbar">
-  @foreach (var item in Model)
-  {
-    <li>
-        @Html.DisplayFor(model => item)
-    </li>
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.DisplayFor(model => item)
+        </li>
 
-  }
+    }
 </ul>

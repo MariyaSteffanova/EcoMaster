@@ -3,7 +3,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Private/Views/Shared/_HomeStoragePanelLayout.cshtml";
 }
-@Styles.Render("~/Content/kendo-css")
+@section kendo{
+    @Styles.Render("~/Content/kendo-css")
+}
 @Styles.Render("~/Content/kitchen-products-list")
 @Scripts.Render("~/bundles/jqueryval")
 <h2 class="title kendo-style-bg">Kitchen</h2>

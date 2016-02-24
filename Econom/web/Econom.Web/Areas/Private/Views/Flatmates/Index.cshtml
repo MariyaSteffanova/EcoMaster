@@ -2,7 +2,9 @@
 @using Econom.Web.Areas.Private.ViewModels;
 @model ICollection<FlatmateViewModel>
 
-@Styles.Render("~/Content/kendo-css")
-@Scripts.Render("~/Contetn/kendo")
+@section kendo{
+    @Styles.Render("~/Content/kendo-css")
+    @Scripts.Render("~/Contetn/kendo")
+}
 <h1 class="title orange-opacity">Flatmates</h1>
 @Html.Partial("_FlatmatesGridView", Model)
