@@ -7,8 +7,8 @@
     <ProjectGuid>{C3A300EF-D136-4334-9211-466B9E699339}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcTemplate.Web.Routes.Tests</RootNamespace>
-    <AssemblyName>MvcTemplate.Web.Routes.Tests</AssemblyName>
+    <RootNamespace>Econom.Web.Routes.Tests</RootNamespace>
+    <AssemblyName>Econom.Web.Routes.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,6 +34,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MvcRouteTester, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -95,6 +99,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAreaRouteTests.cs" />
+    <Compile Include="PrivateAreaRouteTests.cs" />
     <Compile Include="PublicAreaRouteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,6 +113,10 @@
     <None Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Services\Econom.Services.Data\Econom.Services.Data.csproj">
+      <Project>{e9140512-f401-4f47-a748-f83e22e60562}</Project>
+      <Name>Econom.Services.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Web\Econom.Web\Econom.Web.csproj">
       <Project>{67cc40ff-4933-4f83-810e-357e6bc8b973}</Project>
       <Name>Econom.Web</Name>

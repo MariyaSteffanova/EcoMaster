@@ -17,9 +17,9 @@
         [OneTimeSetUp]
         public void RouteCollectionSetup()
         {
-            var area4Reg = new PublicAreaRegistration();
-            var area4Context = new AreaRegistrationContext(area4Reg.AreaName, RouteTable.Routes);
-            area4Reg.RegisterArea(area4Context);
+            var area = new PublicAreaRegistration();
+            var area4Context = new AreaRegistrationContext(area.AreaName, RouteTable.Routes);
+            area.RegisterArea(area4Context);
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
