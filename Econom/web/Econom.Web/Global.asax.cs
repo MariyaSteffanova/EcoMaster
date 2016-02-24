@@ -6,7 +6,8 @@
     using System.Web.Routing;
 
     using Econom.Web.Infrastructure.Mapping;
-
+    using Microsoft.AspNet.SignalR;
+    using App_Start;
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -17,7 +18,7 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
+           GlobalHost.DependencyResolver = new NinjectDependencyResolver(NinjectWebCommon.CreateKernel());
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute(Assembly.GetExecutingAssembly());
         }

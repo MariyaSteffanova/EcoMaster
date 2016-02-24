@@ -2,27 +2,35 @@
 {
     using Microsoft.AspNet.SignalR;
     using Econom.Web.Areas.Private.ViewModels;
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
-    using System.Web.Mvc;
-    using Microsoft.AspNet.SignalR.Hubs;
+    using Services.Data.Contracts;
+    using System.Linq;
 
-
-    [Microsoft.AspNet.SignalR.Authorize(Roles = "Admin")]
     public class RecipeSuggestionsHub : Hub
     {
         private static readonly Dictionary<string, string> users = new Dictionary<string, string>();
+        private IUserService usersService;
+        private IRecipesService recipesService;
+        private ISuggestionsService suggestionsService;
 
         public Dictionary<string, string> ConnectionsDictionary
         {
             get { return users; }
         }
 
+        public RecipeSuggestionsHub(IUserService usersService, IRecipesService recipesService, ISuggestionsService suggestionsService)
+
+        {
+            this.usersService = usersService;
+            this.recipesService = recipesService;
+            this.suggestionsService = suggestionsService;
+        }
+
         public override Task OnConnected()
         {
-            var a = Context.Request.User.Identity.GetUserId();
+            var a = Context.User.Identity.GetUserId();
             string userid = a;
             string connectionId = Context.ConnectionId;
 
@@ -35,10 +43,25 @@
 
             return base.OnConnected();
         }
-        public void Hello(RecipeSearchResultViewModel recipe)
+        public void Send(RecipeSearchResultViewModel recipe)
         {
-            var a = Context.ConnectionId;
-            Clients.All.receiveRecipe("Hey");
+            var recipeId = this.recipesService.CreateBasic(recipe.Id, recipe.Title, recipe.ImageUrl, recipe.SocialRank);
+            var senderId = Context.User.Identity.GetUserId();
+
+            var suggestion = this.suggestionsService.Create(senderId, recipeId, string.Empty); // TODO: Map
+
+            var flatmates = this.usersService.GetFlatmates(senderId);
+
+            var flatIds = flatmates.Select(x => x.Id).ToList();
+
+            foreach (var id in flatIds)
+            {
+                if (this.ConnectionsDictionary.ContainsKey(id))
+                {
+                    var connectionId = this.ConnectionsDictionary[id];
+                    Clients.Client(connectionId).receiveRecipe(suggestion);
+                }
+            }
         }
     }
 }

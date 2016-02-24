@@ -194,3 +194,16 @@ textarea {
 #404 {
     background-image: url(././Images/././Images/404.jpg);
 }
+
+#notificationRecipe {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    background: white none repeat scroll 0% 0%;
+    padding: 10px;
+    z-index: 9999;
+}
+
+notificationRecipe img{
+    max-height: 200px;
+}

@@ -1,7 +1,9 @@
-﻿namespace Econom.Services.Data.Contracts
+﻿using Econom.Data.Models;
+
+namespace Econom.Services.Data.Contracts
 {
     public interface ISuggestionsService
     {
-        int Create(string senderId, int recipeId, string notes);
+        Suggestion Create(string senderId, int recipeId, string notes);
     }
 }

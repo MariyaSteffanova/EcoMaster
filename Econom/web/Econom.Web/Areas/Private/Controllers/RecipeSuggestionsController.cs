@@ -17,6 +17,7 @@ namespace Econom.Web.Areas.Private.Controllers
         public RecipeSuggestionsController(IUserService usersService)
         {
             this.usersService = usersService;
+           
         }
         // GET: Private/RecipeSuggestions
         public ActionResult Index()

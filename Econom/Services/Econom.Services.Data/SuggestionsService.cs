@@ -20,7 +20,7 @@ namespace Econom.Services.Data
             this.suggestions = suggestions;
         }
 
-        public int Create(string senderId, int recipeId, string notes)
+        public Suggestion Create(string senderId, int recipeId, string notes)
         {
             var suggestion = new Suggestion
             {
@@ -31,7 +31,7 @@ namespace Econom.Services.Data
 
             this.suggestions.Add(suggestion);
             this.suggestions.SaveChanges();
-            return suggestion.ID;
+            return suggestion;
         }
     }
 }

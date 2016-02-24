@@ -18,6 +18,11 @@ namespace Econom.Web.App_Start
     using Ninject.Web.Common;
     using Ninject.Web.Mvc.FilterBindingSyntax;
     using Infrastructure.Filters;
+    using Microsoft.AspNet.SignalR.Hubs;
+    using Microsoft.AspNet.SignalR.Infrastructure;
+    using Microsoft.AspNet.SignalR;
+    using System.Collections.Generic;
+    using System.Linq;
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -44,15 +49,17 @@ namespace Econom.Web.App_Start
         /// Creates the kernel that will manage your application.
         /// </summary>
         /// <returns>The created kernel.</returns>
-        private static IKernel CreateKernel()
+        public static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+                //  GlobalHost.DependencyResolver = new NinjectSignalRDependencyResolver(kernel);
 
                 RegisterServices(kernel);
+
                 return kernel;
             }
             catch
@@ -84,6 +91,42 @@ namespace Econom.Web.App_Start
                     GlobalConstants.ProvidersServicesAssembly)
                .SelectAllClasses()
                .BindDefaultInterface());
+
+            //       kernel.Bind<IStockTicker>()
+            //.To<Microsoft.AspNet.SignalR.StockTicker.StockTicker>()  // Bind to StockTicker.
+            //.InSingletonScope();  // Make it a singleton object.
+
+            //       kernel.Bind<IHubConnectionContext>().ToMethod(context =>
+            //           resolver.Resolve<IConnectionManager>().GetHubContext<StockTickerHub>().Clients
+            //           ).WhenInjectedInto<IStockTicker>();
+        }
+    }
+
+
+    public class NinjectDependencyResolver : DefaultDependencyResolver
+    {
+        private readonly IKernel _kernel;
+
+        public NinjectDependencyResolver(IKernel kernel)
+        {
+            if (kernel == null)
+            {
+                throw new ArgumentNullException("kernel");
+            }
+
+            _kernel = kernel;
+        }
+
+        public override object GetService(Type serviceType)
+        {
+            var service = _kernel.TryGet(serviceType) ?? base.GetService(serviceType);
+            return service;
+        }
+
+        public override IEnumerable<object> GetServices(Type serviceType)
+        {
+            var services = _kernel.GetAll(serviceType).Concat(base.GetServices(serviceType));
+            return services;
         }
     }
 }

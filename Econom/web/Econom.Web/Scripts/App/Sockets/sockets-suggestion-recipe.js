@@ -16,14 +16,15 @@
         };
 
         console.log(data);
-
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: data,
-            success: function () {
-               $('#notification-suggestion-sent').show();
-            }
-        });
+        var recipeSuggestions = $.connection.recipeSuggestionsHub;
+        recipeSuggestions.server.send(data);
+        //$.ajax({
+        //    url: url,
+        //    method: 'POST',
+        //    data: data,
+        //    success: function () {
+        //       $('#notification-suggestion-sent').show();
+        //    }
+        //});
     });
 }());

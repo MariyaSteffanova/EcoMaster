@@ -10,7 +10,26 @@
     </i>
 </h3>
 <div id="notificationRecipe" style="display:none">
-    <h1 id="notificationRecipeTitle"></h1>
+    <a><span class="fa fa-close"></span></a>
+    <h1 id="notification-title"></h1>
+    <span class="fa fa-star orange-opacity"><span id="notification-rank"></span></span>
+    <div id="notification-img">
+
+    </div>
+    <span id="notification-notes"></span>
+    <span>Already approved by: <span id="notification-approved" class="orange-opacity"></span></span>
 </div>
 @Html.Action("Index", "StorageProductsGrid")
 
+@section scripts{
+    <script>
+        $(documet).ready(function () {
+            var $btnClose = $('body').find('.fa-close');
+            if($btnClose){
+                $btnClose.click(function () {
+                    $('#notificationRecipe').hide();
+                });
+            }          
+        });
+    </script>
+    }

@@ -14,9 +14,24 @@
         if ($.connection != null) {
             console.log('nope');
         }
+
+        if (recipe) {
+            var img = $('<img/>').attr('src', recipe.Recipe.ImageUrl),
+                btnApprove = $('<a href="/Private/Suggestions/Approve/"' + recipe.RecipeID + '>Approve</a>').addClass("btn").addClass("kendo-style-bg");
+
+            $('#notification-title').text(recipe.Recipe.Title);
+            $('#notification-rank').text(recipe.Recipe.SocialRank);
+            $('#notification-img').append(img);
+            $('#notification-notes').text(recipe.Notes);
+            $('#notification-approved-count').text(recipe.Approvals + '');
+            console.log(recipe.Title);
+            $('#notificationRecipe').show();
+            $('#notificationRecipe').append(btnApprove);
+                              
+        }
         console.log(recipe);
         //  $('#notificationRecipeTitle').title(recipe.recipe.Title);
-        $('#notificationRecipe').show();
+      
         console.log("yep");
     };
 

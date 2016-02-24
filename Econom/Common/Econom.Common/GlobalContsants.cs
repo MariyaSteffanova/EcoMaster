@@ -33,5 +33,7 @@
 
         public const string AdminUserRole = "Admin";
 
+        public const string DefaultSuggestionNotes = "What about this recipe?";
+
     }
 }
