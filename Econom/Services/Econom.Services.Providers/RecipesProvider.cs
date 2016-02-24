@@ -13,6 +13,11 @@
     {
         private static List<List<string>> queryVariations = new List<List<string>>();
 
+        public static void ClearList()
+        {
+            queryVariations.Clear();
+        }
+
         public static List<List<string>> GetQueryVariations(IList<string> ingredients)
         {
             var k = ingredients.Count();
@@ -22,7 +27,7 @@
                 GetVariationsWithoutRepetition(ingredients, Enumerable.Repeat<string>(string.Empty, i).ToList(), 0, i, 0);
             }
 
-            return queryVariations;
+            return queryVariations.ToList();
         }
 
         public static void GetVariationsWithoutRepetition(IList<string> set, List<string> variations, int index, int k, int from)
@@ -45,19 +50,21 @@
 
     public class RecipesProvider : IRecipesProvider
     {
-        private readonly string API_KEY = "e71f11faed69a805a32c9146e1579822";
+        private readonly string API_KEY = "90e7b386764d99c46d5d8f89fff4c3a3";
         private readonly string SEARCH_URL = "http://food2fork.com/api/search?key={0}&q={1}";
         private readonly string DETAILS_URL = "http://food2fork.com/api/get?key={0}&rId={1}";
 
         public IQueryable<RecipeResult> GetRecipes(IList<string> ingredients)
         {
             var result = new List<RecipeResult>();
+            QueryCombinationGenerator.ClearList();
 
             var queryVariationsResult = QueryCombinationGenerator
                             .GetQueryVariations(ingredients)
-                            .OrderByDescending(x => x.Count);
+                            .OrderByDescending(x => x.Count)
+                            .ToList();
 
-            this.GetRecipesList(result, queryVariationsResult);
+            this.GetRecipesList(result, queryVariationsResult.ToList());
             this.GetRecipesDetails(result);
 
             return result.AsQueryable();
@@ -70,11 +77,11 @@
                 var url = string.Format(DETAILS_URL, API_KEY, recipe.Food2ForkID);
                 var responseString = this.Request(url);
                 var ingredientsResponse = JsonConvert.DeserializeObject<RecipeDetailsQueryResponse>(responseString).Recipe;
-                recipe.Ingredients =ingredientsResponse.Ingredients;
+                recipe.Ingredients = ingredientsResponse.Ingredients;
             }
         }
 
-        private void GetRecipesList(List<RecipeResult> result, IOrderedEnumerable<List<string>> queryVariationsResult)
+        private void GetRecipesList(List<RecipeResult> result, IEnumerable<List<string>> queryVariationsResult)
         {
             foreach (var query in queryVariationsResult)
             {

@@ -22,19 +22,15 @@
                  "<span>#: data.Name #</span>")
 )
 
-<a class="btn btn-lg kendo-style-bg" data-role="generate-recipe" href="@Url.Action("GetRecipes", "Kitchen")">Get Recipe Ideas</a>
+<a class="btn btn-lg kendo-style-bg" data-role="generate-recipe" data-href="@Url.Action("GetRecipes", "Kitchen")">Get Recipe Ideas</a>
 
 <div class="title" id="recipes">
 
 </div>
 <script>
-    $(document).ready(function () {
-        var products = $("#products").data("kendoMultiSelect");
-
-        products.wrapper.attr("id", "products-wrapper");
-    });
-
     var selectedIds = {};
+
+    // Kendo
     function onSelect(e) {
 
         var dataItem = this.dataSource.view()[e.item.index()];
@@ -43,35 +39,7 @@
             selectedIds[dataItem.ID] = 0;
         }
         selectedIds[dataItem.ID] = +selectedIds[dataItem.ID] + 1;
-
-        //  console.log("event :: select (" + dataItem.Name + " : " + dataItem.ID + ")");
-
     }
-
-    $('a[data-role="generate-recipe"]').click(function (e) {
-        var data = [];
-
-        for (var k in selectedIds) {
-            if (selectedIds.hasOwnProperty(k)) {
-                if (selectedIds[k] % 2 == 1) {
-                    data.push(+k);
-                }
-            }
-        }
-
-        $.ajax({
-            url: "@Url.Action("GetRecipes", "Kitchen")",
-            type: "POST",
-            data: { data: data },
-            dataSource: 'application/json',
-            success: function (data) {
-                console.log("success!");
-                console.log(data);
-                $('#recipes').html(data);
-            }
-        })
-        e.preventDefault();
-        console.log(data);
-    });
-
 </script>
+
+    @Scripts.Render("~/bundles/recipes-search") 

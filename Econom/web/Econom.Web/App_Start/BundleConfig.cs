@@ -26,7 +26,8 @@
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
-                     "~/Scripts/appStart.js"));
+                     "~/Scripts/appStart.js",
+                     "~/Scripts/app/sockets/sockets-init.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/theme").Include(
                 "~/Content/theme/js/vendor/jquery-2.1.4.min.js",
@@ -38,6 +39,16 @@
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                 "~/Scripts/Kendo/kendo.all.min.js",
                 "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/recipes-found").Include(
+                "~/Scripts/app/sockets/sockets-suggestion-recipe.js",
+                "~/Scripts/app/events/recipes-found-events.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/recipes-search-kendo").Include(
+                "~/Scripts/app/events/recipes-search-kendo.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/recipes-search").Include(
+                "~/Scripts/app/events/recipes-generate-events.js"));
 
             bundles.Add(new StyleBundle("~/Content/theme").Include(
                 "~/Content/theme/css/style.css",

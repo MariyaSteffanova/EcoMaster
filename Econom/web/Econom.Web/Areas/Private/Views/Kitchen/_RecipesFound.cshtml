@@ -1,19 +1,17 @@
 ﻿@using Econom.Web.Areas.Private.ViewModels
 @model List<RecipeSearchResultViewModel>
-
-
-@foreach (var recipe in Model)
-{
-    @Html.DisplayFor(model => recipe)
+@{
+    var notificationSent = "Recipe successfuly sent.";
 }
 
-<script>
+<div id="notification-suggestion-sent" style="display:none">
+    @Html.DisplayFor(model => notificationSent, "NotificationSuccess")
+</div>
 
-    $('a[data-role="show-ingredients"]').click(function (e) {
-        $($(e.target).siblings('.ingredients')[0]).show();
-    });
+@foreach (var recipeModel in Model)
+{
+    @Html.DisplayFor(model => recipeModel)
+}
 
-    $('a[data-role="hide-ingredients"]').click(function (e) {
-        $('.ingredients').hide();
-    });
-</script>
+@Scripts.Render("~/bundles/recipes-found")
+

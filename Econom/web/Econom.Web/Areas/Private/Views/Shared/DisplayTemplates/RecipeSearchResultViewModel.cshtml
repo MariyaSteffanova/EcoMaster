@@ -1,12 +1,24 @@
 ﻿@using Econom.Web.Areas.Private.ViewModels
 @model  RecipeSearchResultViewModel
 <div class="col-md-3 recipe-wrapper">
- <div class="panel">
-    <div class="panel-body">
-        <h3 class="title kendo-style-bg">@Model.Title</h3>
-        <div>@Html.DisplayFor(model => model.SocialRank, "RecipeSocialRank")</div>
-        <div>@Html.DisplayFor(model => model.ImageUrl, "RecipeImage")</div>
-        <div>@Html.DisplayFor(model => model.Ingredients, "RecipeIngredients")</div>
+    <div class="panel">
+        <div class="panel-body">
+            <h3 class="title kendo-style-bg">@Model.Title</h3>
+            <div>@Html.DisplayFor(model => model.SocialRank, "RecipeSocialRank")</div>
+            <div>@Html.DisplayFor(model => model.ImageUrl, "RecipeImage")</div>
+            <div>
+                @using (Ajax.BeginForm("Send", "RecipeSuggestions", new AjaxOptions { }))
+                {
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.ImageUrl)
+                    @Html.HiddenFor(model => model.Ingredients)
+                    @Html.HiddenFor(model => model.Title)
+                    <a data-role="make-suggestion" data-href="@Url.Action("Send", "RecipeSuggestions")" data-id="@Model.Id" data-title="@Model.Title" data-image-url="@Model.ImageUrl" class="btn orange-opacity">Send to flatmates</a>
+                    @*<input type="submit" class="btn btn-lg orange-opacity send-suggestion" value="Send to flatmates"/>*@
+                }
+            </div>
+            <div>@Html.DisplayFor(model => model.Ingredients, "RecipeIngredients")</div>
+        </div>
+
     </div>
- </div>
 </div>

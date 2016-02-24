@@ -38,6 +38,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(HomeStorageInputModel model)
         {
             // TODO: Attribute
