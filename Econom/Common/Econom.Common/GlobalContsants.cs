@@ -29,5 +29,9 @@
 
         public const string ClientSearchMode = "ClientSearchMode";
 
+        public const string DefaultUserRole = "User";
+
+        public const string AdminUserRole = "Admin";
+
     }
 }

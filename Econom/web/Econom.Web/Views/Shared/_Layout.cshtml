@@ -40,7 +40,11 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "Public" }, null)</li>
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Home Storage", "Index", "HomeStorage", new { area = "Private" }, null)</li>
+                        <li>@Html.ActionLink("Food Storage", "Index", "HomeStorage", new { area = "Private" }, null)</li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Dashboard", new { area = "Admin" }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -60,6 +64,16 @@
     @Scripts.Render("~/bundles/main")
     @*@Scripts.Render("~/bundles/kendo")*@
     @RenderSection("scripts", required: false)
-  
+    <div id="loadingDiv" class="alert alert-success">HEy heyhey</div>
+  <script>
+      var $loading = $('#loadingDiv').hide();
+      $(document)
+        .ajaxStart(function () {
+            $loading.show();
+        })
+        .ajaxStop(function () {
+            $loading.hide();
+        });
+  </script>
 </body>
 </html>

@@ -12,6 +12,7 @@
     using Kendo.Mvc.Extensions;
     using Microsoft.AspNet.Identity;
 
+    [Authorize]
     public class FlatmatesController : BaseMapController
     {
         private readonly IUserService userService;

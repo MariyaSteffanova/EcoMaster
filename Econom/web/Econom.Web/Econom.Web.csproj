@@ -250,7 +250,6 @@
     <Compile Include="Areas\Private\Controllers\StorageProductsGridController.cs" />
     <Compile Include="Areas\Private\Controllers\HomeStorageController.cs" />
     <Compile Include="Areas\Private\Controllers\StorageProductsController.cs" />
-    <Compile Include="Areas\Private\Controllers\UserController.cs" />
     <Compile Include="Areas\Private\InputModels\HomeStorageInputModel.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Areas\Private\ViewModels\HomeStorageViewModel.cs" />

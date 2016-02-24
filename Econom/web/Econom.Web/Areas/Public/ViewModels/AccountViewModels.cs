@@ -49,9 +49,8 @@
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -60,9 +59,10 @@
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
     }
 
-      public class ResetPasswordViewModel
+    public class ResetPasswordViewModel
     {
         [Required]
         [EmailAddress]

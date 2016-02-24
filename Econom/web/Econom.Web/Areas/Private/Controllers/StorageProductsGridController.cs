@@ -12,6 +12,8 @@
     using Econom.Web.Areas.Private.ViewModels;
     using Econom.Web.Infrastructure.Mapping;
     using Common.Extensions;
+
+    [Authorize]
     public class StorageProductsGridController : BaseMapController
     {
         private readonly IStorageProductsService storageProducts;

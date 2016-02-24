@@ -1,4 +1,5 @@
-﻿using Econom.Data.Models;
+﻿using Econom.Common;
+using Econom.Data.Models;
 using Econom.Services.Data.Contracts;
 using Econom.Web.Areas.Admin.ViewModels;
 using Econom.Web.Infrastructure.BaseControllers;
@@ -13,6 +14,7 @@ using System.Web.Mvc;
 
 namespace Econom.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = GlobalConstants.AdminUserRole)]
     public class FoodStoragesController : BaseMapController
     {
         private readonly IHomeStorageService foodStorages;

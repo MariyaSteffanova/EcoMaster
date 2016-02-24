@@ -1,12 +1,14 @@
 ﻿namespace Econom.Web.Areas.Admin.Controllers
 {
+    using Common;
     using Infrastructure.BaseControllers;
     using Infrastructure.Mapping;
     using Services.Data.Contracts;
     using System.Linq;
     using System.Web.Mvc;
     using ViewModels;
-    // TODO: Auth
+
+    [Authorize(Roles = GlobalConstants.AdminUserRole)]
     public class DashboardController : BaseMapController
     {
         private readonly IStatisticsService statistics;

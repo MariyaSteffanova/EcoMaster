@@ -13,6 +13,8 @@
     using System.Web;
     using System.Web.Mvc;
     using ViewModels;
+
+    [Authorize]
     public class KitchenController : BaseMapController
     {
         private readonly IStorageProductsService storageProductsService;

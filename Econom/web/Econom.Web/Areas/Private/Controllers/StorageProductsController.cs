@@ -7,6 +7,7 @@
     using System;
     using System.Web.Mvc;
 
+    [Authorize]
     public class StorageProductsController : Controller
     {
         private IStorageProductsService storageProductsService;

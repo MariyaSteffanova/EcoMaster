@@ -26,8 +26,10 @@
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
-                     "~/Scripts/appStart.js",
-                     "~/Scripts/app/sockets/sockets-init.js"));
+                     "~/Scripts/appStart.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/private").Include(
+                 "~/Scripts/app/sockets/sockets-init.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/theme").Include(
                 "~/Content/theme/js/vendor/jquery-2.1.4.min.js",
