@@ -26,22 +26,26 @@ namespace Econom.Services.Searchers
 
         public IQueryable<RecipeResult> SearchRecipes(IEnumerable<int> storageProductsIds)
         {
-            var possibleIngredients = this.storageProducts
-                            .ByIds(storageProductsIds)
-                            .OrderBy(x => x.CreatedOn)
-                            .Select(x => x.Product.Name)
-                            .ToList()
-                            .SelectMany(name => name
-                                            .Split(new[] { " ", ",", ";" }, StringSplitOptions.RemoveEmptyEntries)
-                                            .Select(word => word.ToLower())
-                                            .Where(IsNotAcronim)
-                                            .Where(DoesNotHaveAdjSuffix)
-                                            .Where(IsNotNoise)
-                                            .Where(IsNotAdjective))
-                            .ToList();
+            var possibleIngredients = this.AnalyzeInput(storageProductsIds).ToList();
 
             return this.recipeProvider
                              .GetRecipes(possibleIngredients);
+        }
+
+        public IEnumerable<string> AnalyzeInput(IEnumerable<int> storageProductsIds)
+        {
+            return this.storageProducts
+                              .ByIds(storageProductsIds)
+                              .OrderBy(x => x.CreatedOn)
+                              .Select(x => x.Product.Name)
+                              .ToList()
+                              .SelectMany(name => name
+                                              .Split(new[] { " ", ",", ";" }, StringSplitOptions.RemoveEmptyEntries)
+                                              .Select(word => word.ToLower())
+                                              .Where(IsNotAcronim)
+                                              .Where(DoesNotHaveAdjSuffix)
+                                              .Where(IsNotNoise)
+                                              .Where(IsNotAdjective));
         }
 
         private Func<string, bool> IsNotAcronim = x =>
