@@ -32,6 +32,10 @@
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -46,10 +50,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IdentifierProviderTests.cs" />
+    <Compile Include="RecipeSearcherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Econom.Common\Econom.Common.csproj">
+      <Project>{c8da2c49-bce9-4446-a548-5fcfa36b1296}</Project>
+      <Name>Econom.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Common\Data.Contracts\Data.Contracts.csproj">
+      <Project>{e275f6a7-50c9-4f43-aea4-a874b59680eb}</Project>
+      <Name>Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Common\Econom.Data.Static\Econom.Data.Static.csproj">
+      <Project>{0a7c87b2-cb37-41a5-83f4-f34b6068b871}</Project>
+      <Name>Econom.Data.Static</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\EconomData\Econom.Data.Models\Econom.Data.Models.csproj">
+      <Project>{1c6815db-0f42-40b7-b310-57690b317bd1}</Project>
+      <Name>Econom.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\EconomData\Econom.Data\Econom.Data.csproj">
+      <Project>{88a8a35d-5d8d-4283-816c-40c3846fd949}</Project>
+      <Name>Econom.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Econom.Tests.Common\Econom.Tests.Common.csproj">
+      <Project>{f241491d-f2aa-4989-815a-fec0c7cc707d}</Project>
+      <Name>Econom.Tests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Econom.Services.Data\Econom.Services.Data.csproj">
+      <Project>{e9140512-f401-4f47-a748-f83e22e60562}</Project>
+      <Name>Econom.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Econom.Services.Providers\Econom.Services.Providers.csproj">
+      <Project>{85520193-33ea-45b0-945d-325d2dd65050}</Project>
+      <Name>Econom.Services.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Econom.Services.Searchers\Econom.Services.Searchers.csproj">
+      <Project>{aff67409-693d-4de6-b42a-d628fccd013a}</Project>
+      <Name>Econom.Services.Searchers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\Econom.Services.Web\Econom.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
       <Name>Econom.Services.Web</Name>
@@ -65,11 +105,6 @@
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\..\stylecop.json">
-      <Link>stylecop.json</Link>
-    </AdditionalFiles>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
