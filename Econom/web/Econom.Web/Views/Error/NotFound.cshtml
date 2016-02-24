@@ -3,10 +3,13 @@
 @{
     ViewBag.Title = "Error";
 }
-
+<style>
+    #404 {
+        background-image: url(./../../Content/Images/404.jpg);
+    }
+</style>
 <h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.22</h2>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
 <div id="404"></div>
 <a class="btn btn-success" href="@Url.Action("Index", "Home", new { area = "Public"})">Go Home</a>
-
 

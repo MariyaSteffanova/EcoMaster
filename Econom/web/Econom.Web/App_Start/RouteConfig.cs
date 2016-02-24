@@ -14,10 +14,14 @@
             RouteBase defaultArea = routes[0];
             routes.RemoveAt(0);
             routes.Add(defaultArea);
+
+            routes.MapRoute("NotFound", "*", new { controller = "Errors", action = "NotFound" });
             routes.MapRoute(
                   name: "Default",
                   url: "Nana/{controller}/{action}/{id}",
                  defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+
+         
         }
     }
 }
