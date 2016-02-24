@@ -29,7 +29,7 @@ namespace Econom.Services.Data
                 SocialRank = rank
             };
 
-            this.recipes.Add(recipes);
+            this.recipes.Add(recipe);
             this.recipes.SaveChanges();
 
             return recipe.ID;

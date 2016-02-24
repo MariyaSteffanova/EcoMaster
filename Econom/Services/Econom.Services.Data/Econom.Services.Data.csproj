@@ -66,6 +66,7 @@
     <Compile Include="Contracts\IRecipesService.cs" />
     <Compile Include="Contracts\IStatisticsService.cs" />
     <Compile Include="Contracts\IStorageProductsService.cs" />
+    <Compile Include="Contracts\ISuggestionsService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="HomeStorageService.cs" />
     <Compile Include="ProductService.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="RecipesService.cs" />
     <Compile Include="StatisticsService.cs" />
     <Compile Include="StorageProductService.cs" />
+    <Compile Include="SuggestionsService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
