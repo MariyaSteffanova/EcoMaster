@@ -207,3 +207,11 @@ textarea {
 notificationRecipe img{
     max-height: 200px;
 }
+
+.fa-close{
+    cursor:pointer;
+}
+
+.map-locations{
+    width: 60%;
+}

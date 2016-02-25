@@ -1,0 +1,41 @@
+﻿@using Kendo.Mvc;
+@using Econom.Web.Areas.Admin.ViewModels;
+
+@model IEnumerable<ProductViewModel>
+
+@(Html.Kendo().Grid(Model)
+      .Name("grid_storages")
+      .ColumnResizeHandleWidth(10)
+      .Resizable(conf => conf.Columns(true))
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.ID);
+          columns.Bound(c => c.Barcode);
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.Category);
+
+          columns.Command(command => { command.Edit(); }).Width(100);
+      })
+
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Navigatable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable(f => f.Mode(GridFilterMode.Menu))
+      //.Mobile(MobileMode.Phone)
+      .DataSource(dataSource => dataSource
+          .Ajax()
+
+          .PageSize(7)
+          .Model(model =>
+          {
+              model.Id(p => p.ID);
+          })
+          .Read(read => read.Action("Get", "ProductsManager"))
+          .Update(update => update.Action("Update", "ProductsManager"))
+      )
+)
+

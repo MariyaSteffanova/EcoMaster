@@ -23,7 +23,10 @@
             return this.products.All().FirstOrDefault(x => x.ID == id);
         }
 
-
+        public IQueryable<Product> GetAll()
+        {
+            return this.products.All();
+        }
         public IQueryable<Product> GetByBarcode(string barcode)
         {
             return this.products.All()
@@ -45,7 +48,12 @@
 
             this.products.SaveChanges();
             var a = products;
+        }
 
+        public void Update(Product model)
+        {
+            this.products.Update(model);
+            this.products.SaveChanges();
         }
     }
 }

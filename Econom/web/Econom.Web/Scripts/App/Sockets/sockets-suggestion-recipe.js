@@ -18,6 +18,8 @@
         console.log(data);
         var recipeSuggestions = $.connection.recipeSuggestionsHub;
         recipeSuggestions.server.send(data);
+
+        $('#notification-suggestion-sent').show();
         //$.ajax({
         //    url: url,
         //    method: 'POST',
